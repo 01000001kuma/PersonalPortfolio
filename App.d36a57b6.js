@@ -38111,10 +38111,6 @@ var Contact = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, null, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _twitter.default,
-        alternate: "twitter",
-        redirectURL: "https://twitter.com/sureshmurali29"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _git.default,
         alternate: "github",
         redirectURL: "https://github.com/sureshmurali"
@@ -38122,14 +38118,6 @@ var Contact = /*#__PURE__*/function (_Component) {
         imgURL: _mail.default,
         alternate: "mail",
         redirectURL: "mailto:sureshmurali29@gmail.com"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _insta.default,
-        alternate: "insta",
-        redirectURL: "https://www.instagram.com/sureshmurali_/"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _dribbble.default,
-        alternate: "dribbble",
-        redirectURL: "https://dribbble.com/sureshmurali29"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _linkedin.default,
         alternate: "linkedin",
