@@ -83,7 +83,7 @@ class AboutMe extends Component {
     const { scrollPercent } = this.state;
     return (
       <Container>
-        <AboutMeTitle scrollPercent={scrollPercent}>ABOUT ME</AboutMeTitle>
+        <AboutMeTitle scrollPercent={scrollPercent}>About me 😊</AboutMeTitle>
         <AboutMeDescription>
         Front-end developer who cares deeply about user experience.
         Serious passion for UI design and new technologies.

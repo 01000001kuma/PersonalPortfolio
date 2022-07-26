@@ -34029,11 +34029,11 @@ var NameAndJobTitle = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(_NameReveal.default, {
-        text: "Suresh Murali",
+        text: "Adrian Molina",
         fontFam: "Valencia",
         timeDelay: 500
       }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_TitleReveal.default, {
-        text: "UI/UX Designer & Front-end Developer",
+        text: "Software Developer",
         fontFam: "AvenirRoman",
         timeDelay: 1300
       }));
@@ -34154,7 +34154,7 @@ var AboutMe = /*#__PURE__*/function (_Component) {
       var scrollPercent = this.state.scrollPercent;
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeTitle, {
         scrollPercent: scrollPercent
-      }, "ABOUT ME"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Front-end developer who cares deeply about user experience. Serious passion for UI design and new technologies."));
+      }, "About me \uD83D\uDE0A"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Front-end developer who cares deeply about user experience. Serious passion for UI design and new technologies."));
     }
   }]);
 
@@ -36122,7 +36122,7 @@ var NameAndJobTitle = /*#__PURE__*/function (_Component) {
   _createClass(NameAndJobTitle, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Suresh Murali"), /*#__PURE__*/_react.default.createElement(Title, null, "FRONT-END DEVELOPER & UI/UX DESIGNER"));
+      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Adrian Molina"), /*#__PURE__*/_react.default.createElement(Title, null, "Software Developer"));
     }
   }]);
 
