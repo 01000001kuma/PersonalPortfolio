@@ -88,7 +88,7 @@ class Contact extends Component {
     return (
       <Container>
         <ContactTitle scrollPercent={scrollPercent}>CONTACT</ContactTitle>
-        <SocialMediaIcons>          
+        <SocialMediaIcons>
           <SocialLogo imgURL={githubImg} alternate="Github" redirectURL="https://github.com/01000001kuma" />
           <SocialLogo imgURL={mailImg} alternate="Mail" redirectURL="mailto:a_illera@yahoo.com" />
           <SocialLogo imgURL={linkedInImg} alternate="Linkedin" redirectURL="https://www.linkedin.com/in/sureshmurali29" />

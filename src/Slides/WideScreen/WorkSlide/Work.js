@@ -45,7 +45,7 @@ class Work extends Component {
       {
         number: '03',
         projectName: 'Wach-A-Politic',
-        projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type of game with a twisted narrative and anarchist feeling.',
+        projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type game with a twisted narrative and anarchist feeling.',
         projectType: 'JavascriptES& Canva HTML CSS',
         roles: ['Front-end Developer', 'UI Designer'],
       },
@@ -70,13 +70,13 @@ class Work extends Component {
       //   projectType: 'WEB APP',
       //   roles: ['Full Stack Developer', 'UI Designer'],
       // },
-      {
-        number: '',
-        projectName: '',
-        projectDesc: '',
-        projectType: '',
-        roles: [''],
-      },
+      // {
+      //   number: '',
+      //   projectName: '',
+      //   projectDesc: '',
+      //   projectType: '',
+      //   roles: [''],
+      // },
     ];
   }
 

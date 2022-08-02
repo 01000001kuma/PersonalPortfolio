@@ -95,33 +95,35 @@ class Skills extends Component {
         <SkillsTitle scrollPercent={scrollPercent}>SKILLS</SkillsTitle>
         <SkillsList>
           <div>
-            Design system
-            <br />
-            Wireframing & Prototyping
-            <br />
-            Visual Communication
-            <br />
-            <br />
-            Figma
-            <br />
-            Sketch
-            <br />
-            P5 JS
-            <br />
-          </div>
-          <div>
-            Responsive & Adaptive Design
-            <br />
-            Styling Architecture
-            <br />
-            UI Maintenance
-            <br />
-            <br />
             React
             <br />
-            React Native
+            MongoDB
             <br />
-            Node JS
+            JavascriptES6
+            <br />
+            <br />
+            Epress.js
+            <br />
+            Node.js
+            <br />
+            Linux
+            <br />
+            <br />
+            Responsive Design
+            <br />
+            Testing & Debugging
+            <br />
+            Application Architecture
+            <br />
+            <br />
+            Github
+            <br />
+            Bootstrap & Sass
+            <br />
+            Maerial.UI
+            <br />
+            <br />
+            Axios.io
             <br />
           </div>
         </SkillsList>
