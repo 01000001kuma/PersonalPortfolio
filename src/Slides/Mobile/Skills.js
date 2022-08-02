@@ -82,16 +82,16 @@ class Skills extends Component {
           <div>
             React
             <br />
-            React Native
+            MongoDB
+            <br />
+            JavascriptES6
+            <br />
+            <br />
+            Epress.js
             <br />
             Node.js
             <br />
-            <br />
-            Rapid Prototyping
-            <br />
-            Functional Programming
-            <br />
-            Interaction Development
+            Linux
             <br />
             <br />
             Responsive Design
@@ -101,11 +101,14 @@ class Skills extends Component {
             Application Architecture
             <br />
             <br />
-            Figma & Sketch
+            Github
             <br />
-            Design system
+            Bootstrap & Sass
             <br />
-            Abstract
+            Maerial.UI
+            <br />
+            <br />
+            Axios.io
             <br />
           </div>
         </SkillsList>

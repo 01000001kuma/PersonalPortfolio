@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import VoistrapImages from './ParallaxImages/VoistrapImages';
 import WhatsMyFoodImages from './ParallaxImages/WhatsMyFoodImages';
 import ComingOrNotImages from './ParallaxImages/ComingOrNotImages';
-import TeslaImages from './ParallaxImages/TeslaImages';
-import KosenImages from './ParallaxImages/KosenImages';
-import VoistrapWebImages from './ParallaxImages/VoistrapWebImages';
+// import TeslaImages from './ParallaxImages/TeslaImages';
+// import KosenImages from './ParallaxImages/KosenImages';
+// import VoistrapWebImages from './ParallaxImages/VoistrapWebImages';
 
 const ImageContainer = styled.div`
 /* border: 0.1px dashed black; */
@@ -89,7 +89,7 @@ class ImageContent extends Component {
             scrollHeight={scrollHeight}
           />
         </ImageBox>
-        <ImageBox height={boxHeight}>
+        {/* <ImageBox height={boxHeight}>
           <TeslaImages
             boxHeight={boxHeight}
             index={4}
@@ -115,7 +115,7 @@ class ImageContent extends Component {
             screenHeight={screenHeight}
             scrollHeight={scrollHeight}
           />
-        </ImageBox>
+        </ImageBox> */}
       </ImageContainer>
     );
   }
