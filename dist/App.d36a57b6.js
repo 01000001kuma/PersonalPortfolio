@@ -35550,28 +35550,25 @@ var Work = /*#__PURE__*/function (_Component) {
       projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type of game with a twisted narrative and anarchist feeling.',
       projectType: 'JavascriptES& Canva HTML CSS',
       roles: ['Front-end Developer', 'UI Designer']
-    }, // {
-    //   number: '04',
-    //   projectName: 'Tesla app',
-    //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
-    //   projectType: 'iOS APP CONCEPT',
-    //   roles: ['UI Designer'],
-    // },
-    // {
-    //   number: '05',
-    //   projectName: 'Video portal',
-    //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    // {
-    //   number: '06',
-    //   projectName: 'Voistrap demo',
-    //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    {
+    }, {
+      number: '04',
+      projectName: 'Tesla app',
+      projectDesc: 'iOS app concept to control Tesla cars remotely.',
+      projectType: 'iOS APP CONCEPT',
+      roles: ['UI Designer']
+    }, {
+      number: '05',
+      projectName: 'Video portal',
+      projectDesc: 'Internal video portal to deliver news to employees all over the world.',
+      projectType: 'WEB APP',
+      roles: ['Full Stack Developer', 'UI Designer']
+    }, {
+      number: '06',
+      projectName: 'Voistrap demo',
+      projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
+      projectType: 'WEB APP',
+      roles: ['Full Stack Developer', 'UI Designer']
+    }, {
       number: '',
       projectName: '',
       projectDesc: '',
@@ -38312,7 +38309,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46369" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45569" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
