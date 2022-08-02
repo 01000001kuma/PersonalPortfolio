@@ -34154,7 +34154,7 @@ var AboutMe = /*#__PURE__*/function (_Component) {
       var scrollPercent = this.state.scrollPercent;
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeTitle, {
         scrollPercent: scrollPercent
-      }, "About me \uD83D\uDE0A"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Front-end developer who cares deeply about user experience. Serious passion for UI design and new technologies."));
+      }, "About me"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. ", /*#__PURE__*/_react.default.createElement("br", null), "Serious passion for solving real life problems and new technologies."));
     }
   }]);
 
@@ -35541,7 +35541,7 @@ var Work = /*#__PURE__*/function (_Component) {
     }, {
       number: '02',
       projectName: 'IronFeeds',
-      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: general, business, entertainment, health, science, and sports.',
+      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
       projectType: 'JavascriptES6 MongoDB Express',
       roles: ['Full Stack Developer']
     }, {
@@ -35550,25 +35550,28 @@ var Work = /*#__PURE__*/function (_Component) {
       projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type of game with a twisted narrative and anarchist feeling.',
       projectType: 'JavascriptES& Canva HTML CSS',
       roles: ['Front-end Developer', 'UI Designer']
-    }, {
-      number: '04',
-      projectName: 'Tesla app',
-      projectDesc: 'iOS app concept to control Tesla cars remotely.',
-      projectType: 'iOS APP CONCEPT',
-      roles: ['UI Designer']
-    }, {
-      number: '05',
-      projectName: 'Video portal',
-      projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-      projectType: 'WEB APP',
-      roles: ['Full Stack Developer', 'UI Designer']
-    }, {
-      number: '06',
-      projectName: 'Voistrap demo',
-      projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-      projectType: 'WEB APP',
-      roles: ['Full Stack Developer', 'UI Designer']
-    }, {
+    }, // {
+    //   number: '04',
+    //   projectName: 'Tesla app',
+    //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
+    //   projectType: 'iOS APP CONCEPT',
+    //   roles: ['UI Designer'],
+    // },
+    // {
+    //   number: '05',
+    //   projectName: 'Video portal',
+    //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
+    //   projectType: 'WEB APP',
+    //   roles: ['Full Stack Developer', 'UI Designer'],
+    // },
+    // {
+    //   number: '06',
+    //   projectName: 'Voistrap demo',
+    //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
+    //   projectType: 'WEB APP',
+    //   roles: ['Full Stack Developer', 'UI Designer'],
+    // },
+    {
       number: '',
       projectName: '',
       projectDesc: '',
@@ -36018,7 +36021,7 @@ var Contact = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _mail.default,
         alternate: "Mail",
-        redirectURL: "mailto:sureshmurali29@gmail.com"
+        redirectURL: "mailto:a_illera@yahoo.com"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _linkedin.default,
         alternate: "Linkedin",
@@ -37738,7 +37741,7 @@ var Work = /*#__PURE__*/function (_Component) {
     }, {
       number: '02',
       projectName: 'IronFeeds',
-      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: general, business, entertainment, health, science, and sports.',
+      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
       projectType: 'JavascriptES6 MongoDB Express',
       roles: ['Front-end Developer', 'UI Designer']
     }, {
@@ -37747,31 +37750,35 @@ var Work = /*#__PURE__*/function (_Component) {
       projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type of game with a twisted narrative and anarchist feeling.',
       projectType: 'WEB APP',
       roles: ['Front-end Developer', 'UI Designer']
-    }, {
-      number: '04',
-      projectName: 'Tesla app',
-      projectDesc: 'iOS app concept to control Tesla cars remotely.',
-      projectType: 'iOS APP CONCEPT',
-      roles: ['UI Designer']
-    }, {
-      number: '05',
-      projectName: 'Video portal',
-      projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-      projectType: 'WEB APP',
-      roles: ['Full Stack Developer', 'UI Designer']
-    }, {
-      number: '06',
-      projectName: 'Voistrap demo',
-      projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-      projectType: 'WEB APP',
-      roles: ['Full Stack Developer', 'UI Designer']
-    }, {
-      number: '',
-      projectName: '',
-      projectDesc: '',
-      projectType: '',
-      roles: ['']
-    }];
+    } // {
+    //   number: '04',
+    //   projectName: 'Tesla app',
+    //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
+    //   projectType: 'iOS APP CONCEPT',
+    //   roles: ['UI Designer'],
+    // },
+    // {
+    //   number: '05',
+    //   projectName: 'Video portal',
+    //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
+    //   projectType: 'WEB APP',
+    //   roles: ['Full Stack Developer', 'UI Designer'],
+    // },
+    // {
+    //   number: '06',
+    //   projectName: 'Voistrap demo',
+    //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
+    //   projectType: 'WEB APP',
+    //   roles: ['Full Stack Developer', 'UI Designer'],
+    // },
+    // {
+    //   number: '',
+    //   projectName: '',
+    //   projectDesc: '',
+    //   projectType: '',
+    //   roles: [''],
+    // },
+    ];
     return _this;
   }
 

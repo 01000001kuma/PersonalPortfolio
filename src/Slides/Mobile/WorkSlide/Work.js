@@ -39,7 +39,7 @@ class Work extends Component {
       {
         number: '02',
         projectName: 'IronFeeds',
-        projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: general, business, entertainment, health, science, and sports.',
+        projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
         projectType: 'JavascriptES6 MongoDB Express',
         roles: ['Front-end Developer', 'UI Designer'],
       },
@@ -50,34 +50,34 @@ class Work extends Component {
         projectType: 'WEB APP',
         roles: ['Front-end Developer', 'UI Designer'],
       },
-      {
-        number: '04',
-        projectName: 'Tesla app',
-        projectDesc: 'iOS app concept to control Tesla cars remotely.',
-        projectType: 'iOS APP CONCEPT',
-        roles: ['UI Designer'],
-      },
-      {
-        number: '05',
-        projectName: 'Video portal',
-        projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-        projectType: 'WEB APP',
-        roles: ['Full Stack Developer', 'UI Designer'],
-      },
-      {
-        number: '06',
-        projectName: 'Voistrap demo',
-        projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-        projectType: 'WEB APP',
-        roles: ['Full Stack Developer', 'UI Designer'],
-      },
-      {
-        number: '',
-        projectName: '',
-        projectDesc: '',
-        projectType: '',
-        roles: [''],
-      },
+      // {
+      //   number: '04',
+      //   projectName: 'Tesla app',
+      //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
+      //   projectType: 'iOS APP CONCEPT',
+      //   roles: ['UI Designer'],
+      // },
+      // {
+      //   number: '05',
+      //   projectName: 'Video portal',
+      //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
+      //   projectType: 'WEB APP',
+      //   roles: ['Full Stack Developer', 'UI Designer'],
+      // },
+      // {
+      //   number: '06',
+      //   projectName: 'Voistrap demo',
+      //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
+      //   projectType: 'WEB APP',
+      //   roles: ['Full Stack Developer', 'UI Designer'],
+      // },
+      // {
+      //   number: '',
+      //   projectName: '',
+      //   projectDesc: '',
+      //   projectType: '',
+      //   roles: [''],
+      // },
     ];
   }
 
