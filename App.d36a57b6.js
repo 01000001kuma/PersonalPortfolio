@@ -35012,7 +35012,7 @@ module.exports = "/EnglishHome.6564ba02.png";
 },{}],"Assets/Images/Kosen/JpnHome.png":[function(require,module,exports) {
 module.exports = "/JpnHome.05334996.png";
 },{}],"Assets/Images/Kosen/Player.png":[function(require,module,exports) {
-module.exports = "/0f77fe2ae00cd916738666f3faa20486.png";
+module.exports = "/Player.faa20486.png";
 },{}],"Slides/WideScreen/WorkSlide/ParallaxImages/KosenImages.js":[function(require,module,exports) {
 "use strict";
 
