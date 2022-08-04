@@ -34179,11 +34179,7 @@ var AboutMe = /*#__PURE__*/function (_Component) {
       var scrollPercent = this.state.scrollPercent;
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeTitle, {
         scrollPercent: scrollPercent
-<<<<<<< HEAD
-      }, "About me"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
-=======
-      }, "ABOUT ME"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Front-end developer who cares deeply about user experience. Serious passion for UI design and new technologies."));
->>>>>>> 7acc2142 (supercommit)
+      }, "ABOUT ME"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
     }
   }]);
 
@@ -34429,7 +34425,7 @@ TextContent.propTypes = {
 var _default = TextContent;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Assets/Images/Voistrap/Home.png":[function(require,module,exports) {
-module.exports = "/Home.29168386.png";
+module.exports = "/c7a4e3b362495608e564848f29168386.png";
 },{}],"Assets/Images/Voistrap/Meetings.png":[function(require,module,exports) {
 module.exports = "/Meetings.5a06b4a3.png";
 },{}],"Assets/Images/Voistrap/People.png":[function(require,module,exports) {
@@ -34857,7 +34853,452 @@ ComingOrNotImages.propTypes = {
 };
 var _default = ComingOrNotImages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/ComingOrNot/Tablet.png":"Assets/Images/ComingOrNot/Tablet.png","../../../../Assets/Images/ComingOrNot/Iphone.png":"Assets/Images/ComingOrNot/Iphone.png"}],"Slides/WideScreen/WorkSlide/ImageContent.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/ComingOrNot/Tablet.png":"Assets/Images/ComingOrNot/Tablet.png","../../../../Assets/Images/ComingOrNot/Iphone.png":"Assets/Images/ComingOrNot/Iphone.png"}],"Assets/Images/Tesla/Tyre.png":[function(require,module,exports) {
+module.exports = "/Tyre.f04a1585.png";
+},{}],"Assets/Images/Tesla/Heat.png":[function(require,module,exports) {
+module.exports = "/Heat.1692c848.png";
+},{}],"Assets/Images/Tesla/Lock.png":[function(require,module,exports) {
+module.exports = "/Lock.82896f69.png";
+},{}],"Assets/Images/Tesla/Battery.png":[function(require,module,exports) {
+module.exports = "/Battery.0e582a33.png";
+},{}],"Slides/WideScreen/WorkSlide/ParallaxImages/TeslaImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Tyre = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Tyre.png"));
+
+var _Heat = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Heat.png"));
+
+var _Lock = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Lock.png"));
+
+var _Battery = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Battery.png"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Heat = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 15, "%)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -90vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
+
+var Tyre = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-45vh;\nright: 2vw;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
+
+var Battery = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 5, "%) scale(0.7)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-75vh;\nleft:2vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
+
+var Lock = _styledComponents.default.img.attrs({
+  style: function style(_ref4) {
+    var scroll = _ref4.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+    };
+  }
+})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-55vh;\nright: 5vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+
+var TeslaImages = /*#__PURE__*/function (_Component) {
+  _inherits(TeslaImages, _Component);
+
+  var _super = _createSuper(TeslaImages);
+
+  function TeslaImages() {
+    _classCallCheck(this, TeslaImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(TeslaImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+      scrollPercent -= scrollOffsetInPercent;
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
+        src: _Lock.default,
+        scroll: scrollPercent,
+        alt: "teslaLock"
+      }), /*#__PURE__*/_react.default.createElement(Battery, {
+        src: _Battery.default,
+        scroll: scrollPercent,
+        alt: "teslaBattery"
+      }), /*#__PURE__*/_react.default.createElement(Tyre, {
+        src: _Tyre.default,
+        scroll: scrollPercent,
+        alt: "teslaTyre"
+      }), /*#__PURE__*/_react.default.createElement(Heat, {
+        src: _Heat.default,
+        scroll: scrollPercent,
+        alt: "teslaHeat"
+      }));
+    }
+  }]);
+
+  return TeslaImages;
+}(_react.Component);
+
+TeslaImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = TeslaImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Tesla/Tyre.png":"Assets/Images/Tesla/Tyre.png","../../../../Assets/Images/Tesla/Heat.png":"Assets/Images/Tesla/Heat.png","../../../../Assets/Images/Tesla/Lock.png":"Assets/Images/Tesla/Lock.png","../../../../Assets/Images/Tesla/Battery.png":"Assets/Images/Tesla/Battery.png"}],"Assets/Images/Kosen/EnglishHome.png":[function(require,module,exports) {
+module.exports = "/EnglishHome.6564ba02.png";
+},{}],"Assets/Images/Kosen/JpnHome.png":[function(require,module,exports) {
+module.exports = "/JpnHome.05334996.png";
+},{}],"Assets/Images/Kosen/Player.png":[function(require,module,exports) {
+module.exports = "/Player.faa20486.png";
+},{}],"Slides/WideScreen/WorkSlide/ParallaxImages/KosenImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _EnglishHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/EnglishHome.png"));
+
+var _JpnHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/JpnHome.png"));
+
+var _Player = _interopRequireDefault(require("../../../../Assets/Images/Kosen/Player.png"));
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var JapaneseTab = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 15, "%)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-140vh;\nleft: 0vw;\n/* border: 1px dashed red; */\nheight: 80vh;\n\n"])));
+
+var EnglishTab = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -120vh;\nright:0.5vw;\n/* border: 1px dashed red; */\nfilter: blur(0.6px);\nheight: 80vh; \n"])));
+
+var PlayerTab = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-65vh;\nleft: 1vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1px);\n"])));
+
+var KosenImages = /*#__PURE__*/function (_Component) {
+  _inherits(KosenImages, _Component);
+
+  var _super = _createSuper(KosenImages);
+
+  function KosenImages() {
+    _classCallCheck(this, KosenImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(KosenImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+      scrollPercent -= scrollOffsetInPercent;
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
+        src: _Player.default,
+        scroll: scrollPercent,
+        alt: "kosenPlayer"
+      }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
+        src: _EnglishHome.default,
+        scroll: scrollPercent,
+        alt: "kosenEnglish"
+      }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
+        src: _JpnHome.default,
+        scroll: scrollPercent,
+        alt: "kosenJapanese"
+      }));
+    }
+  }]);
+
+  return KosenImages;
+}(_react.Component);
+
+KosenImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = KosenImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Kosen/EnglishHome.png":"Assets/Images/Kosen/EnglishHome.png","../../../../Assets/Images/Kosen/JpnHome.png":"Assets/Images/Kosen/JpnHome.png","../../../../Assets/Images/Kosen/Player.png":"Assets/Images/Kosen/Player.png"}],"Assets/Images/Showcase/Dots.png":[function(require,module,exports) {
+module.exports = "/Dots.b481a8f1.png";
+},{}],"Assets/Images/Showcase/Bubble.png":[function(require,module,exports) {
+module.exports = "/Bubble.6a009001.png";
+},{}],"Assets/Images/Showcase/Paths.png":[function(require,module,exports) {
+module.exports = "/Paths.faabbc38.png";
+},{}],"Assets/Images/Showcase/BigBubble.png":[function(require,module,exports) {
+module.exports = "/BigBubble.05d71ef5.png";
+},{}],"Slides/WideScreen/WorkSlide/ParallaxImages/VoistrapWebImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Dots = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Dots.png"));
+
+var _Bubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Bubble.png"));
+
+var _Paths = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Paths.png"));
+
+var _BigBubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/BigBubble.png"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Dots = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 30, "%)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -240vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 50vh; \n"])));
+
+var Bubbles = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 23, "%) scale(0.9)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\nposition: absolute;\nbottom:-225vh;\nright: 0vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(0.6px);\n"])));
+
+var BigBubble = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 10, "%) scale(0.7)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\nbottom:-125vh;\nleft:-4vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(0.8px);\n"])));
+
+var Paths = _styledComponents.default.img.attrs({
+  style: function style(_ref4) {
+    var scroll = _ref4.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 3, "%) scale(0.6)")
+    };
+  }
+})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\nbottom:-80vh;\nright: 1vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(1.2px);\n"])));
+
+var VoistrapWebImages = /*#__PURE__*/function (_Component) {
+  _inherits(VoistrapWebImages, _Component);
+
+  var _super = _createSuper(VoistrapWebImages);
+
+  function VoistrapWebImages() {
+    _classCallCheck(this, VoistrapWebImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(VoistrapWebImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+      scrollPercent -= scrollOffsetInPercent;
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
+        src: _Paths.default,
+        scroll: scrollPercent,
+        alt: "paths"
+      }), /*#__PURE__*/_react.default.createElement(BigBubble, {
+        src: _BigBubble.default,
+        scroll: scrollPercent,
+        alt: "bigBubble"
+      }), /*#__PURE__*/_react.default.createElement(Bubbles, {
+        src: _Bubble.default,
+        scroll: scrollPercent,
+        alt: "bubbles"
+      }), /*#__PURE__*/_react.default.createElement(Dots, {
+        src: _Dots.default,
+        scroll: scrollPercent,
+        alt: "dots"
+      }));
+    }
+  }]);
+
+  return VoistrapWebImages;
+}(_react.Component);
+
+VoistrapWebImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = VoistrapWebImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Showcase/Dots.png":"Assets/Images/Showcase/Dots.png","../../../../Assets/Images/Showcase/Bubble.png":"Assets/Images/Showcase/Bubble.png","../../../../Assets/Images/Showcase/Paths.png":"Assets/Images/Showcase/Paths.png","../../../../Assets/Images/Showcase/BigBubble.png":"Assets/Images/Showcase/BigBubble.png"}],"Slides/WideScreen/WorkSlide/ImageContent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34876,6 +35317,12 @@ var _VoistrapImages = _interopRequireDefault(require("./ParallaxImages/VoistrapI
 var _WhatsMyFoodImages = _interopRequireDefault(require("./ParallaxImages/WhatsMyFoodImages"));
 
 var _ComingOrNotImages = _interopRequireDefault(require("./ParallaxImages/ComingOrNotImages"));
+
+var _TeslaImages = _interopRequireDefault(require("./ParallaxImages/TeslaImages"));
+
+var _KosenImages = _interopRequireDefault(require("./ParallaxImages/KosenImages"));
+
+var _VoistrapWebImages = _interopRequireDefault(require("./ParallaxImages/VoistrapWebImages"));
 
 var _templateObject, _templateObject2;
 
@@ -34909,9 +35356,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-// import TeslaImages from './ParallaxImages/TeslaImages';
-// import KosenImages from './ParallaxImages/KosenImages';
-// import VoistrapWebImages from './ParallaxImages/VoistrapWebImages';
 var ImageContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 0.1px dashed black; */\nmargin-left:50%;\nwidth:50%;\nheight:900vh;\ndisplay: flex;\nflex-flow: column nowrap;\n"])));
 
 var ImageBox = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n/* outline: 0.1px dashed green; */\nmargin-top:40vh;\nheight: 100vh;\nposition: relative;\n"])));
@@ -35002,6 +35446,30 @@ var ImageContent = /*#__PURE__*/function (_Component) {
         scrollPercent: scrollPercent,
         screenHeight: screenHeight,
         scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
+        boxHeight: boxHeight,
+        index: 4,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
+        boxHeight: boxHeight,
+        index: 5,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
+        boxHeight: boxHeight,
+        index: 6,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
       })));
     }
   }]);
@@ -35014,7 +35482,7 @@ ImageContent.propTypes = {
 };
 var _default = ImageContent;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","./ParallaxImages/VoistrapImages":"Slides/WideScreen/WorkSlide/ParallaxImages/VoistrapImages.js","./ParallaxImages/WhatsMyFoodImages":"Slides/WideScreen/WorkSlide/ParallaxImages/WhatsMyFoodImages.js","./ParallaxImages/ComingOrNotImages":"Slides/WideScreen/WorkSlide/ParallaxImages/ComingOrNotImages.js"}],"Slides/WideScreen/WorkSlide/Work.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","./ParallaxImages/VoistrapImages":"Slides/WideScreen/WorkSlide/ParallaxImages/VoistrapImages.js","./ParallaxImages/WhatsMyFoodImages":"Slides/WideScreen/WorkSlide/ParallaxImages/WhatsMyFoodImages.js","./ParallaxImages/ComingOrNotImages":"Slides/WideScreen/WorkSlide/ParallaxImages/ComingOrNotImages.js","./ParallaxImages/TeslaImages":"Slides/WideScreen/WorkSlide/ParallaxImages/TeslaImages.js","./ParallaxImages/KosenImages":"Slides/WideScreen/WorkSlide/ParallaxImages/KosenImages.js","./ParallaxImages/VoistrapWebImages":"Slides/WideScreen/WorkSlide/ParallaxImages/VoistrapWebImages.js"}],"Slides/WideScreen/WorkSlide/Work.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35097,47 +35565,6 @@ var Work = /*#__PURE__*/function (_Component) {
       roles: ['Full Stack Developer', 'UI Designer']
     }, {
       number: '02',
-<<<<<<< HEAD
-      projectName: 'IronFeeds',
-      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
-      projectType: 'JavascriptES6 MongoDB Express',
-      roles: ['Full Stack Developer']
-    }, {
-      number: '03',
-      projectName: 'Wach-A-Politic',
-      projectDesc: 'Web-based game where Spanish corrupt politics are splashed once they want to get out of the parliament, a Whac-A-Mole type game with a twisted narrative and anarchist feeling.',
-      projectType: 'JavascriptES& Canva HTML CSS',
-      roles: ['Front-end Developer', 'UI Designer']
-    } // {
-    //   number: '04',
-    //   projectName: 'Tesla app',
-    //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
-    //   projectType: 'iOS APP CONCEPT',
-    //   roles: ['UI Designer'],
-    // },
-    // {
-    //   number: '05',
-    //   projectName: 'Video portal',
-    //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    // {
-    //   number: '06',
-    //   projectName: 'Voistrap demo',
-    //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    // {
-    //   number: '',
-    //   projectName: '',
-    //   projectDesc: '',
-    //   projectType: '',
-    //   roles: [''],
-    // },
-    ];
-=======
       projectName: 'WhatsMyFood',
       projectDesc: 'iOS app to remember your fav food at each restaurant you eat.',
       projectType: 'iOS APP',
@@ -35173,7 +35600,6 @@ var Work = /*#__PURE__*/function (_Component) {
       projectType: '',
       roles: ['']
     }];
->>>>>>> 7acc2142 (supercommit)
     return _this;
   }
 
@@ -35633,7 +36059,7 @@ var Contact = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _mail.default,
         alternate: "Mail",
-        redirectURL: "mailto:a_illera@yahoo.com"
+        redirectURL: "mailto:sureshmurali29@gmail.com"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _insta.default,
         alternate: "Instagram",
@@ -36656,7 +37082,437 @@ ComingOrNotImages.propTypes = {
 };
 var _default = ComingOrNotImages;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/ComingOrNot/Tablet.png":"Assets/Images/ComingOrNot/Tablet.png","../../../../Assets/Images/ComingOrNot/Iphone.png":"Assets/Images/ComingOrNot/Iphone.png"}],"Slides/Mobile/WorkSlide/ImageContent.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/ComingOrNot/Tablet.png":"Assets/Images/ComingOrNot/Tablet.png","../../../../Assets/Images/ComingOrNot/Iphone.png":"Assets/Images/ComingOrNot/Iphone.png"}],"Slides/Mobile/WorkSlide/ParallaxImages/TeslaImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Tyre = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Tyre.png"));
+
+var _Heat = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Heat.png"));
+
+var _Lock = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Lock.png"));
+
+var _Battery = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Battery.png"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Heat = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 15, "%) scale(0.7)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -170vh;\ntransform-origin: left center;\nleft:2vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
+
+var Tyre = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 8.5, "%) scale(0.62)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-125vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
+
+var Battery = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 3.5, "%) scale(0.5)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-110vh;\nleft:10vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
+
+var Lock = _styledComponents.default.img.attrs({
+  style: function style(_ref4) {
+    var scroll = _ref4.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.45)")
+    };
+  }
+})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-105vh;\nright: 10vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+
+var TeslaImages = /*#__PURE__*/function (_Component) {
+  _inherits(TeslaImages, _Component);
+
+  var _super = _createSuper(TeslaImages);
+
+  function TeslaImages() {
+    _classCallCheck(this, TeslaImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(TeslaImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+      scrollPercent -= scrollOffsetInPercent;
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
+        src: _Lock.default,
+        scroll: scrollPercent,
+        alt: "teslaLock"
+      }), /*#__PURE__*/_react.default.createElement(Battery, {
+        src: _Battery.default,
+        scroll: scrollPercent,
+        alt: "teslaBattery"
+      }), /*#__PURE__*/_react.default.createElement(Tyre, {
+        src: _Tyre.default,
+        scroll: scrollPercent,
+        alt: "teslaTyre"
+      }), /*#__PURE__*/_react.default.createElement(Heat, {
+        src: _Heat.default,
+        scroll: scrollPercent,
+        alt: "teslaHeat"
+      }));
+    }
+  }]);
+
+  return TeslaImages;
+}(_react.Component);
+
+TeslaImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = TeslaImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Tesla/Tyre.png":"Assets/Images/Tesla/Tyre.png","../../../../Assets/Images/Tesla/Heat.png":"Assets/Images/Tesla/Heat.png","../../../../Assets/Images/Tesla/Lock.png":"Assets/Images/Tesla/Lock.png","../../../../Assets/Images/Tesla/Battery.png":"Assets/Images/Tesla/Battery.png"}],"Slides/Mobile/WorkSlide/ParallaxImages/KosenImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _EnglishHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/EnglishHome.png"));
+
+var _JpnHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/JpnHome.png"));
+
+var _Player = _interopRequireDefault(require("../../../../Assets/Images/Kosen/Player.png"));
+
+var _templateObject, _templateObject2, _templateObject3;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var JapaneseTab = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 13, "%) scale(0.8)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-220vh;\nleft: 2vw;\ntransform-origin: left center;\n/* border: 1px dashed red; */\nheight: 70vh;\n\n"])));
+
+var EnglishTab = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 9, "%) scale(0.6)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -210vh;\nright: 3vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nfilter: blur(0.6px);\nheight: 70vh; \n"])));
+
+var PlayerTab = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 3, "%) scale(0.5)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-135vh;\nleft: 3vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 70vh;\nfilter: blur(1px);\n"])));
+
+var KosenImages = /*#__PURE__*/function (_Component) {
+  _inherits(KosenImages, _Component);
+
+  var _super = _createSuper(KosenImages);
+
+  function KosenImages() {
+    _classCallCheck(this, KosenImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(KosenImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight; // console.log('Voistrap scrollOffsetPercent ', scrollOffsetInPercent);
+
+      console.log('scrollPercent ', scrollPercent);
+      scrollPercent -= scrollOffsetInPercent;
+
+      if (scrollPercent > 0 && scrollPercent < 0.1) {
+        console.log('Voistrap');
+      }
+
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
+        src: _Player.default,
+        scroll: scrollPercent,
+        alt: "kosenPlayer"
+      }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
+        src: _EnglishHome.default,
+        scroll: scrollPercent,
+        alt: "kosenEnglish"
+      }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
+        src: _JpnHome.default,
+        scroll: scrollPercent,
+        alt: "kosenJapanese"
+      }));
+    }
+  }]);
+
+  return KosenImages;
+}(_react.Component);
+
+KosenImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = KosenImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Kosen/EnglishHome.png":"Assets/Images/Kosen/EnglishHome.png","../../../../Assets/Images/Kosen/JpnHome.png":"Assets/Images/Kosen/JpnHome.png","../../../../Assets/Images/Kosen/Player.png":"Assets/Images/Kosen/Player.png"}],"Slides/Mobile/WorkSlide/ParallaxImages/VoistrapWebImages.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _Dots = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Dots.png"));
+
+var _Bubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Bubble.png"));
+
+var _Paths = _interopRequireDefault(require("../../../../Assets/Images/Showcase/Paths.png"));
+
+var _BigBubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/BigBubble.png"));
+
+var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Dots = _styledComponents.default.img.attrs({
+  style: function style(_ref) {
+    var scroll = _ref.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 36, "%) scale(0.99)")
+    };
+  }
+})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -250vh;\nleft:2vw;\ntransform-origin: left center;\n/* border: 1px dashed red; */\nwidth: 80vw; \n"])));
+
+var Bubbles = _styledComponents.default.img.attrs({
+  style: function style(_ref2) {
+    var scroll = _ref2.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 25, "%) scale(0.9)")
+    };
+  }
+})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\nposition: absolute;\nbottom:-210vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.2px);\n"])));
+
+var BigBubble = _styledComponents.default.img.attrs({
+  style: function style(_ref3) {
+    var scroll = _ref3.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 13, "%) scale(0.8)")
+    };
+  }
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\nbottom:-160vh;\nleft:2vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.5px);\n"])));
+
+var Paths = _styledComponents.default.img.attrs({
+  style: function style(_ref4) {
+    var scroll = _ref4.scroll;
+    return {
+      transform: "translate(0px,-".concat(scroll * 4, "%) scale(0.7)")
+    };
+  }
+})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\nbottom:-120vh;\nright: 2vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.8px);\n"])));
+
+var VoistrapWebImages = /*#__PURE__*/function (_Component) {
+  _inherits(VoistrapWebImages, _Component);
+
+  var _super = _createSuper(VoistrapWebImages);
+
+  function VoistrapWebImages() {
+    _classCallCheck(this, VoistrapWebImages);
+
+    return _super.apply(this, arguments);
+  }
+
+  _createClass(VoistrapWebImages, [{
+    key: "render",
+    value: function render() {
+      var scrollPercent = this.props.scrollPercent;
+      var _this$props = this.props,
+          boxHeight = _this$props.boxHeight,
+          index = _this$props.index,
+          scrollHeight = _this$props.scrollHeight,
+          screenHeight = _this$props.screenHeight;
+      var heighttoBeReducedinVH = boxHeight * index - 100;
+      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+      scrollPercent -= scrollOffsetInPercent;
+      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
+        src: _Paths.default,
+        scroll: scrollPercent,
+        alt: "paths"
+      }), /*#__PURE__*/_react.default.createElement(BigBubble, {
+        src: _BigBubble.default,
+        scroll: scrollPercent,
+        alt: "bigBubble"
+      }), /*#__PURE__*/_react.default.createElement(Bubbles, {
+        src: _Bubble.default,
+        scroll: scrollPercent,
+        alt: "bubbles"
+      }), /*#__PURE__*/_react.default.createElement(Dots, {
+        src: _Dots.default,
+        scroll: scrollPercent,
+        alt: "dots"
+      }));
+    }
+  }]);
+
+  return VoistrapWebImages;
+}(_react.Component);
+
+VoistrapWebImages.propTypes = {
+  boxHeight: _propTypes.default.number.isRequired,
+  index: _propTypes.default.number.isRequired,
+  screenHeight: _propTypes.default.number.isRequired,
+  scrollHeight: _propTypes.default.number.isRequired,
+  scrollPercent: _propTypes.default.number.isRequired
+};
+var _default = VoistrapWebImages;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../../Assets/Images/Showcase/Dots.png":"Assets/Images/Showcase/Dots.png","../../../../Assets/Images/Showcase/Bubble.png":"Assets/Images/Showcase/Bubble.png","../../../../Assets/Images/Showcase/Paths.png":"Assets/Images/Showcase/Paths.png","../../../../Assets/Images/Showcase/BigBubble.png":"Assets/Images/Showcase/BigBubble.png"}],"Slides/Mobile/WorkSlide/ImageContent.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36677,6 +37533,12 @@ var _VoistrapImages = _interopRequireDefault(require("./ParallaxImages/VoistrapI
 var _WhatsMyFoodImages = _interopRequireDefault(require("./ParallaxImages/WhatsMyFoodImages"));
 
 var _ComingOrNotImages = _interopRequireDefault(require("./ParallaxImages/ComingOrNotImages"));
+
+var _TeslaImages = _interopRequireDefault(require("./ParallaxImages/TeslaImages"));
+
+var _KosenImages = _interopRequireDefault(require("./ParallaxImages/KosenImages"));
+
+var _VoistrapWebImages = _interopRequireDefault(require("./ParallaxImages/VoistrapWebImages"));
 
 var _templateObject, _templateObject2;
 
@@ -36710,9 +37572,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-// import TeslaImages from './ParallaxImages/TeslaImages';
-// import KosenImages from './ParallaxImages/KosenImages';
-// import VoistrapWebImages from './ParallaxImages/VoistrapWebImages';
 var ImageContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 0.1px dashed black; */\nwidth:100%;\nheight:900vh;\nmargin-bottom:30vh;\ndisplay: flex;\nflex-flow: column nowrap;\n"])));
 
 var ImageBox = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n/* outline: 0.1px dashed green; */\nmargin-top:30vh;\nheight: 100vh;\nposition: relative;\n"])));
@@ -36806,6 +37665,30 @@ var ImageContent = /*#__PURE__*/function (_Component) {
         scrollPercent: scrollPercent,
         screenHeight: screenHeight,
         scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
+        boxHeight: boxHeight,
+        index: 4,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
+        boxHeight: boxHeight,
+        index: 5,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
+      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+        height: boxHeight
+      }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
+        boxHeight: boxHeight,
+        index: 6,
+        scrollPercent: scrollPercent,
+        screenHeight: screenHeight,
+        scrollHeight: scrollHeight
       })));
     }
   }]);
@@ -36818,7 +37701,7 @@ ImageContent.propTypes = {
 };
 var _default = ImageContent;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","vh-check":"../node_modules/vh-check/dist/vh-check.js","./ParallaxImages/VoistrapImages":"Slides/Mobile/WorkSlide/ParallaxImages/VoistrapImages.js","./ParallaxImages/WhatsMyFoodImages":"Slides/Mobile/WorkSlide/ParallaxImages/WhatsMyFoodImages.js","./ParallaxImages/ComingOrNotImages":"Slides/Mobile/WorkSlide/ParallaxImages/ComingOrNotImages.js"}],"Slides/Mobile/WorkSlide/Work.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","vh-check":"../node_modules/vh-check/dist/vh-check.js","./ParallaxImages/VoistrapImages":"Slides/Mobile/WorkSlide/ParallaxImages/VoistrapImages.js","./ParallaxImages/WhatsMyFoodImages":"Slides/Mobile/WorkSlide/ParallaxImages/WhatsMyFoodImages.js","./ParallaxImages/ComingOrNotImages":"Slides/Mobile/WorkSlide/ParallaxImages/ComingOrNotImages.js","./ParallaxImages/TeslaImages":"Slides/Mobile/WorkSlide/ParallaxImages/TeslaImages.js","./ParallaxImages/KosenImages":"Slides/Mobile/WorkSlide/ParallaxImages/KosenImages.js","./ParallaxImages/VoistrapWebImages":"Slides/Mobile/WorkSlide/ParallaxImages/VoistrapWebImages.js"}],"Slides/Mobile/WorkSlide/Work.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36903,15 +37786,9 @@ var Work = /*#__PURE__*/function (_Component) {
       roles: ['Full Stack Developer', 'UI Designer']
     }, {
       number: '02',
-<<<<<<< HEAD
-      projectName: 'IronFeeds',
-      projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
-      projectType: 'JavascriptES6 MongoDB Express',
-=======
       projectName: 'WhatsMyFood',
       projectDesc: 'iOS app to remember your fav food at each restaurant you eat.',
       projectType: 'iOS APP',
->>>>>>> 7acc2142 (supercommit)
       roles: ['Front-end Developer', 'UI Designer']
     }, {
       number: '03',
@@ -36919,35 +37796,31 @@ var Work = /*#__PURE__*/function (_Component) {
       projectDesc: 'Event planner web app that strives to ease the work of an organizer, conduct events in a less chaotic way.',
       projectType: 'WEB APP',
       roles: ['Front-end Developer', 'UI Designer']
-    } // {
-    //   number: '04',
-    //   projectName: 'Tesla app',
-    //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
-    //   projectType: 'iOS APP CONCEPT',
-    //   roles: ['UI Designer'],
-    // },
-    // {
-    //   number: '05',
-    //   projectName: 'Video portal',
-    //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    // {
-    //   number: '06',
-    //   projectName: 'Voistrap demo',
-    //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-    //   projectType: 'WEB APP',
-    //   roles: ['Full Stack Developer', 'UI Designer'],
-    // },
-    // {
-    //   number: '',
-    //   projectName: '',
-    //   projectDesc: '',
-    //   projectType: '',
-    //   roles: [''],
-    // },
-    ];
+    }, {
+      number: '04',
+      projectName: 'Tesla app',
+      projectDesc: 'iOS app concept to control Tesla cars remotely.',
+      projectType: 'iOS APP CONCEPT',
+      roles: ['UI Designer']
+    }, {
+      number: '05',
+      projectName: 'Video portal',
+      projectDesc: 'Internal video portal to deliver news to employees all over the world.',
+      projectType: 'WEB APP',
+      roles: ['Full Stack Developer', 'UI Designer']
+    }, {
+      number: '06',
+      projectName: 'Voistrap demo',
+      projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
+      projectType: 'WEB APP',
+      roles: ['Full Stack Developer', 'UI Designer']
+    }, {
+      number: '',
+      projectName: '',
+      projectDesc: '',
+      projectType: '',
+      roles: ['']
+    }];
     return _this;
   }
 
@@ -37491,11 +38364,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45569" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34061" + '/');
->>>>>>> 7acc2142 (supercommit)
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45123" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

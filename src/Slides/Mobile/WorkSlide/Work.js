@@ -38,15 +38,9 @@ class Work extends Component {
       },
       {
         number: '02',
-<<<<<<< HEAD
-        projectName: 'IronFeeds',
-        projectDesc: 'IronFeeds is a CRUD API backend project where users fetch news based on their favorite categories, such as: General, Business, Entertainment, Health, Science, and Sports.',
-        projectType: 'JavascriptES6 MongoDB Express',
-=======
         projectName: 'WhatsMyFood',
         projectDesc: 'iOS app to remember your fav food at each restaurant you eat.',
         projectType: 'iOS APP',
->>>>>>> 7acc2142 (supercommit)
         roles: ['Front-end Developer', 'UI Designer'],
       },
       {
@@ -56,36 +50,6 @@ class Work extends Component {
         projectType: 'WEB APP',
         roles: ['Front-end Developer', 'UI Designer'],
       },
-<<<<<<< HEAD
-      // {
-      //   number: '04',
-      //   projectName: 'Tesla app',
-      //   projectDesc: 'iOS app concept to control Tesla cars remotely.',
-      //   projectType: 'iOS APP CONCEPT',
-      //   roles: ['UI Designer'],
-      // },
-      // {
-      //   number: '05',
-      //   projectName: 'Video portal',
-      //   projectDesc: 'Internal video portal to deliver news to employees all over the world.',
-      //   projectType: 'WEB APP',
-      //   roles: ['Full Stack Developer', 'UI Designer'],
-      // },
-      // {
-      //   number: '06',
-      //   projectName: 'Voistrap demo',
-      //   projectDesc: 'Web app project to give workplace insights using indoor localization, voice and schedule.',
-      //   projectType: 'WEB APP',
-      //   roles: ['Full Stack Developer', 'UI Designer'],
-      // },
-      // {
-      //   number: '',
-      //   projectName: '',
-      //   projectDesc: '',
-      //   projectType: '',
-      //   roles: [''],
-      // },
-=======
       {
         number: '04',
         projectName: 'Tesla app',
@@ -114,7 +78,6 @@ class Work extends Component {
         projectType: '',
         roles: [''],
       },
->>>>>>> 7acc2142 (supercommit)
     ];
   }
 
