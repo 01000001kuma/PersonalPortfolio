@@ -102,7 +102,7 @@ class Skills extends Component {
             JavascriptES6
             <br />
             <br />
-            Epress.js
+            Express.js
             <br />
             Node.js
             <br />
@@ -120,7 +120,7 @@ class Skills extends Component {
             <br />
             Bootstrap & Sass
             <br />
-            Maerial.UI
+            Material.UI
             <br />
             <br />
             Axios.io
