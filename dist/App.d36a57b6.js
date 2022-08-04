@@ -29347,7 +29347,7 @@ if ("development" !== 'production') {
   // http://fb.me/prop-types-in-prod
 
 
-  var throwOnDirectAccess = true;
+  var throwOnDirectAccess = false;
   module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
 } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
@@ -34425,7 +34425,7 @@ TextContent.propTypes = {
 var _default = TextContent;
 exports.default = _default;
 },{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","prop-types":"../node_modules/prop-types/index.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Assets/Images/Voistrap/Home.png":[function(require,module,exports) {
-module.exports = "/c7a4e3b362495608e564848f29168386.png";
+module.exports = "/Home.29168386.png";
 },{}],"Assets/Images/Voistrap/Meetings.png":[function(require,module,exports) {
 module.exports = "/Meetings.5a06b4a3.png";
 },{}],"Assets/Images/Voistrap/People.png":[function(require,module,exports) {
@@ -35012,7 +35012,7 @@ module.exports = "/EnglishHome.6564ba02.png";
 },{}],"Assets/Images/Kosen/JpnHome.png":[function(require,module,exports) {
 module.exports = "/JpnHome.05334996.png";
 },{}],"Assets/Images/Kosen/Player.png":[function(require,module,exports) {
-module.exports = "/Player.faa20486.png";
+module.exports = "/0f77fe2ae00cd916738666f3faa20486.png";
 },{}],"Slides/WideScreen/WorkSlide/ParallaxImages/KosenImages.js":[function(require,module,exports) {
 "use strict";
 
