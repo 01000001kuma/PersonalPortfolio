@@ -34054,11 +34054,11 @@ var NameAndJobTitle = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(_NameReveal.default, {
-        text: "Suresh Murali",
+        text: "Adrian Molina",
         fontFam: "Valencia",
         timeDelay: 500
       }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_TitleReveal.default, {
-        text: "UI/UX Designer & Front-end Developer",
+        text: "Full Stack Developer",
         fontFam: "AvenirRoman",
         timeDelay: 1300
       }));
@@ -36147,7 +36147,7 @@ var NameAndJobTitle = /*#__PURE__*/function (_Component) {
   _createClass(NameAndJobTitle, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Suresh Murali"), /*#__PURE__*/_react.default.createElement(Title, null, "FRONT-END DEVELOPER & UI/UX DESIGNER"));
+      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Adrian Molina"), /*#__PURE__*/_react.default.createElement(Title, null, "Full Stack Developer"));
     }
   }]);
 

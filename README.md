@@ -1,4 +1,4 @@
-# Suresh Murali's Personal Portfolio website
+# Adrian Molina's Personal Portfolio website
 
 Website link: [sureshmurali.github.io](sureshmurali.github.io)
 
