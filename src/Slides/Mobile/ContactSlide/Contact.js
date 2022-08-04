@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import twitterImg from '../../../Assets/Images/Social/twitter.svg';
 import githubImg from '../../../Assets/Images/Social/git.svg';
 import mailImg from '../../../Assets/Images/Social/mail.svg';
 import instaImg from '../../../Assets/Images/Social/insta.svg';
@@ -89,10 +88,9 @@ class Contact extends Component {
     return (
       <Container>
         <ContactTitle>CONTACT</ContactTitle>
-        <SocialMediaIcons>
-          <SocialLogo imgURL={twitterImg} alternate="twitter" redirectURL="https://twitter.com/sureshmurali29" />
-          <SocialLogo imgURL={githubImg} alternate="github" redirectURL="https://github.com/sureshmurali" />
-          <SocialLogo imgURL={mailImg} alternate="mail" redirectURL="mailto:sureshmurali29@gmail.com" />
+        <SocialMediaIcons>          
+          <SocialLogo imgURL={githubImg} alternate="github" redirectURL="https://github.com/01000001kuma" />
+          <SocialLogo imgURL={mailImg} alternate="mail" redirectURL="mailto:a_illera@yahoo.com" />
           <SocialLogo imgURL={instaImg} alternate="insta" redirectURL="https://www.instagram.com/sureshmurali_/" />
           <SocialLogo imgURL={dribbbleImg} alternate="dribbble" redirectURL="https://dribbble.com/sureshmurali29" />
           <SocialLogo imgURL={linkedInImg} alternate="linkedin" redirectURL="https://www.linkedin.com/in/sureshmurali29" />
