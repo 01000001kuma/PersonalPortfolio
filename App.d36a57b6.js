@@ -35801,16 +35801,10 @@ var Skills = /*#__PURE__*/function (_Component) {
 
 var _default = Skills;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Assets/Images/Social/twitter.svg":[function(require,module,exports) {
-module.exports = "/twitter.920364fd.svg";
-},{}],"Assets/Images/Social/git.svg":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Assets/Images/Social/git.svg":[function(require,module,exports) {
 module.exports = "/git.1a000b88.svg";
 },{}],"Assets/Images/Social/mail.svg":[function(require,module,exports) {
 module.exports = "/mail.00c836f6.svg";
-},{}],"Assets/Images/Social/insta.svg":[function(require,module,exports) {
-module.exports = "/insta.54ac694c.svg";
-},{}],"Assets/Images/Social/dribbble.svg":[function(require,module,exports) {
-module.exports = "/dribbble.72bc2d7b.svg";
 },{}],"Assets/Images/Social/linkedin.svg":[function(require,module,exports) {
 module.exports = "/linkedin.a58775df.svg";
 },{}],"Slides/WideScreen/ContactSlide/SocialLogo.js":[function(require,module,exports) {
@@ -35928,15 +35922,9 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _twitter = _interopRequireDefault(require("../../../Assets/Images/Social/twitter.svg"));
-
 var _git = _interopRequireDefault(require("../../../Assets/Images/Social/git.svg"));
 
 var _mail = _interopRequireDefault(require("../../../Assets/Images/Social/mail.svg"));
-
-var _insta = _interopRequireDefault(require("../../../Assets/Images/Social/insta.svg"));
-
-var _dribbble = _interopRequireDefault(require("../../../Assets/Images/Social/dribbble.svg"));
 
 var _linkedin = _interopRequireDefault(require("../../../Assets/Images/Social/linkedin.svg"));
 
@@ -36049,10 +36037,6 @@ var Contact = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, {
         scrollPercent: scrollPercent
       }, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _twitter.default,
-        alternate: "Twitter",
-        redirectURL: "https://twitter.com/sureshmurali29"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _git.default,
         alternate: "Github",
         redirectURL: "https://github.com/01000001kuma"
@@ -36060,14 +36044,6 @@ var Contact = /*#__PURE__*/function (_Component) {
         imgURL: _mail.default,
         alternate: "Mail",
         redirectURL: "mailto:a_illera@yahoo.com"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _insta.default,
-        alternate: "Instagram",
-        redirectURL: "https://www.instagram.com/sureshmurali_/"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _dribbble.default,
-        alternate: "Dribbble",
-        redirectURL: "https://dribbble.com/sureshmurali29"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _linkedin.default,
         alternate: "Linkedin",
@@ -36081,7 +36057,7 @@ var Contact = /*#__PURE__*/function (_Component) {
 
 var _default = Contact;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/twitter.svg":"Assets/Images/Social/twitter.svg","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/insta.svg":"Assets/Images/Social/insta.svg","../../../Assets/Images/Social/dribbble.svg":"Assets/Images/Social/dribbble.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/WideScreen/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Slides/Mobile/HeroSlide/NameAndJobTitle.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/WideScreen/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"Slides/Mobile/HeroSlide/NameAndJobTitle.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
