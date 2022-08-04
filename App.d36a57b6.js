@@ -36055,11 +36055,11 @@ var Contact = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _git.default,
         alternate: "Github",
-        redirectURL: "https://github.com/sureshmurali"
+        redirectURL: "https://github.com/01000001kuma"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _mail.default,
         alternate: "Mail",
-        redirectURL: "mailto:sureshmurali29@gmail.com"
+        redirectURL: "mailto:a_illera@yahoo.com"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _insta.default,
         alternate: "Instagram",
@@ -38067,8 +38067,6 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _twitter = _interopRequireDefault(require("../../../Assets/Images/Social/twitter.svg"));
-
 var _git = _interopRequireDefault(require("../../../Assets/Images/Social/git.svg"));
 
 var _mail = _interopRequireDefault(require("../../../Assets/Images/Social/mail.svg"));
@@ -38136,17 +38134,13 @@ var Contact = /*#__PURE__*/function (_Component) {
     key: "render",
     value: function render() {
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, null, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _twitter.default,
-        alternate: "twitter",
-        redirectURL: "https://twitter.com/sureshmurali29"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _git.default,
         alternate: "github",
-        redirectURL: "https://github.com/sureshmurali"
+        redirectURL: "https://github.com/01000001kuma"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _mail.default,
         alternate: "mail",
-        redirectURL: "mailto:sureshmurali29@gmail.com"
+        redirectURL: "mailto:a_illera@yahoo.com"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _insta.default,
         alternate: "insta",
@@ -38168,7 +38162,7 @@ var Contact = /*#__PURE__*/function (_Component) {
 
 var _default = Contact;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/twitter.svg":"Assets/Images/Social/twitter.svg","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/insta.svg":"Assets/Images/Social/insta.svg","../../../Assets/Images/Social/dribbble.svg":"Assets/Images/Social/dribbble.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/Mobile/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/insta.svg":"Assets/Images/Social/insta.svg","../../../Assets/Images/Social/dribbble.svg":"Assets/Images/Social/dribbble.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/Mobile/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
