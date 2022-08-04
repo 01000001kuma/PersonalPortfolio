@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import githubImg from '../../../Assets/Images/Social/git.svg';
 import mailImg from '../../../Assets/Images/Social/mail.svg';
-import instaImg from '../../../Assets/Images/Social/insta.svg';
-import dribbbleImg from '../../../Assets/Images/Social/dribbble.svg';
 import linkedInImg from '../../../Assets/Images/Social/linkedin.svg';
 import SocialLogo from './SocialLogo';
 import device from '../../../Assets/Responsive/breakpoints';
@@ -91,9 +89,7 @@ class Contact extends Component {
         <SocialMediaIcons>          
           <SocialLogo imgURL={githubImg} alternate="github" redirectURL="https://github.com/01000001kuma" />
           <SocialLogo imgURL={mailImg} alternate="mail" redirectURL="mailto:a_illera@yahoo.com" />
-          <SocialLogo imgURL={instaImg} alternate="insta" redirectURL="https://www.instagram.com/sureshmurali_/" />
-          <SocialLogo imgURL={dribbbleImg} alternate="dribbble" redirectURL="https://dribbble.com/sureshmurali29" />
-          <SocialLogo imgURL={linkedInImg} alternate="linkedin" redirectURL="https://www.linkedin.com/in/sureshmurali29" />
+          <SocialLogo imgURL={linkedInImg} alternate="linkedin" redirectURL="https://www.linkedin.com/in/adrian-molina/" />
         </SocialMediaIcons>
       </Container>
     );
