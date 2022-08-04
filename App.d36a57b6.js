@@ -36071,7 +36071,7 @@ var Contact = /*#__PURE__*/function (_Component) {
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _linkedin.default,
         alternate: "Linkedin",
-        redirectURL: "https://www.linkedin.com/in/sureshmurali29"
+        redirectURL: "https://www.linkedin.com/in/adrian-molina/"
       })));
     }
   }]);
@@ -38071,10 +38071,6 @@ var _git = _interopRequireDefault(require("../../../Assets/Images/Social/git.svg
 
 var _mail = _interopRequireDefault(require("../../../Assets/Images/Social/mail.svg"));
 
-var _insta = _interopRequireDefault(require("../../../Assets/Images/Social/insta.svg"));
-
-var _dribbble = _interopRequireDefault(require("../../../Assets/Images/Social/dribbble.svg"));
-
 var _linkedin = _interopRequireDefault(require("../../../Assets/Images/Social/linkedin.svg"));
 
 var _SocialLogo = _interopRequireDefault(require("./SocialLogo"));
@@ -38142,17 +38138,9 @@ var Contact = /*#__PURE__*/function (_Component) {
         alternate: "mail",
         redirectURL: "mailto:a_illera@yahoo.com"
       }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _insta.default,
-        alternate: "insta",
-        redirectURL: "https://www.instagram.com/sureshmurali_/"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _dribbble.default,
-        alternate: "dribbble",
-        redirectURL: "https://dribbble.com/sureshmurali29"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
         imgURL: _linkedin.default,
         alternate: "linkedin",
-        redirectURL: "https://www.linkedin.com/in/sureshmurali29"
+        redirectURL: "https://www.linkedin.com/in/adrian-molina/"
       })));
     }
   }]);
@@ -38162,7 +38150,7 @@ var Contact = /*#__PURE__*/function (_Component) {
 
 var _default = Contact;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/insta.svg":"Assets/Images/Social/insta.svg","../../../Assets/Images/Social/dribbble.svg":"Assets/Images/Social/dribbble.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/Mobile/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../../Assets/Images/Social/git.svg":"Assets/Images/Social/git.svg","../../../Assets/Images/Social/mail.svg":"Assets/Images/Social/mail.svg","../../../Assets/Images/Social/linkedin.svg":"Assets/Images/Social/linkedin.svg","./SocialLogo":"Slides/Mobile/ContactSlide/SocialLogo.js","../../../Assets/Responsive/breakpoints":"Assets/Responsive/breakpoints.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
