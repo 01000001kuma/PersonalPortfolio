@@ -1,7 +1,7 @@
 {
   "name": "my_portfolio",
   "version": "1.0.0",
-  "description": "Adrian Molina's Portfolio",
+  "description": "Suresh Murali's Portfolio",
   "main": "App.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/sureshmurali/My-Portfolio.git"
   },
-  "author": "Adrian Molina",
+  "author": "Suresh Murali",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sureshmurali/My-Portfolio/issues"
@@ -26,7 +26,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "parcel-bundler": "^1.3.1"
+    "parcel-bundler": "^1.10.3"
   },
   "dependencies": {
     "dotenv": "^6.1.0",
