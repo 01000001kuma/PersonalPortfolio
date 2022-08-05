@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "deploy": "git subtree push --prefix docs origin gh-pages"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/01000001kuma/My-Portfolio/issues"
   },
-  "homepage": "https://github.com/01000001kuma/PersonalPortfolio.git",
+  "homepage": "https://01000001kuma.github.io/PersonalPortfolio",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
@@ -27,7 +29,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^4.0.0",
-    "parcel-bundler": "^1.10.3"
+    "parcel-bundler": "^1.3.1"
   },
   "dependencies": {
     "dotenv": "^6.1.0",
