@@ -101,13 +101,11 @@ class Skills extends Component {
             <br />
             JavascriptES6
             <br />
-            <br />
             Express.js
             <br />
             Node.js
             <br />
             Linux
-            <br />
             <br />
             Responsive Design
             <br />
@@ -115,13 +113,11 @@ class Skills extends Component {
             <br />
             Application Architecture
             <br />
-            <br />
             Github
             <br />
             Bootstrap & Sass
             <br />
             Material.UI
-            <br />
             <br />
             Axios.io
             <br />
