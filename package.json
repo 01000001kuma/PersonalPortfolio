@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/01000001kuma/My-Portfolio.git"
+    "url": "git+https://github.com/01000001kuma/PersonalPortfolio.git"
   },
   "author": "Adrian Molina",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/01000001kuma/My-Portfolio/issues"
   },
-  "homepage": "https://github.com/01000001kuma/My-Portfolio#readme",
+  "homepage": "http://adrianmolina.portfolio.com/",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
