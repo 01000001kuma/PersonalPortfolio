@@ -35719,7 +35719,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 120vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
+var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 130vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
 
 var SkillsTitle = _styledComponents.default.div.attrs({
   style: function style(_ref) {
@@ -35792,7 +35792,7 @@ var Skills = /*#__PURE__*/function (_Component) {
       var scrollPercent = this.state.scrollPercent;
       return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(SkillsTitle, {
         scrollPercent: scrollPercent
-      }, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), "Express.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Material.UI", /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
+      }, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Express.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Material.UI", /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
     }
   }]);
 
@@ -37917,7 +37917,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 100vh;\n    width:100%;\n    /* border: 1px solid blue; */\n    display: flex;\n    flex-flow: column wrap;\n    justify-content: center;\n    align-content: flex-start;\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:90px;\n    }\n    @media ", " {\n    padding-left:120px;\n    }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
+var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 120vh;\n    width:100%;\n    /* border: 1px solid blue; */\n    display: flex;\n    flex-flow: column wrap;\n    justify-content: center;\n    align-content: flex-start;\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:90px;\n    }\n    @media ", " {\n    padding-left:120px;\n    }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
 
 var SkillsTitle = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  color: #000;\n  @media ", " {\n    font-size: 40px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  @media ", " {\n    font-size: 60px;\n  }\n  @media ", " {\n    font-size: 90px;\n  }\n  @media ", " {\n    font-size: 95px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
 
@@ -38322,7 +38322,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42745" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
