@@ -35719,7 +35719,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 130vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
+var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 170vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
 
 var SkillsTitle = _styledComponents.default.div.attrs({
   style: function style(_ref) {
@@ -38322,7 +38322,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42745" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39915" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
