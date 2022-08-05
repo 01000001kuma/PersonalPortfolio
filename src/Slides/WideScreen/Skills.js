@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import device from '../../Assets/Responsive/breakpoints';
 
 const Container = styled.div`
-    height: 120vh;/* Since pageSplitTime is 1.4 */
+    height: 130vh;/* Since pageSplitTime is 1.4 */
     width:100%;
     /* border: 1px solid blue; */
     position: relative;
@@ -101,17 +101,20 @@ class Skills extends Component {
             <br />
             JavascriptES6
             <br />
+            <br />
             Express.js
             <br />
             Node.js
             <br />
             Linux
             <br />
+            <br />
             Responsive Design
             <br />
             Testing & Debugging
             <br />
             Application Architecture
+            <br />
             <br />
             Github
             <br />

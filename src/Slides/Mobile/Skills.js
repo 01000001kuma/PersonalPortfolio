@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import device from '../../Assets/Responsive/breakpoints';
 
 const Container = styled.section`
-    height: 100vh;
+    height: 120vh;
     width:100%;
     /* border: 1px solid blue; */
     display: flex;
