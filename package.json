@@ -4,12 +4,12 @@
   "description": "Adrian's Molina Portfolio",
   "main": "App.js",
   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "parcel src/index.html",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
