@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
 import MediaQuery from 'react-responsive';
-import WideScreenHero from './src/Slides/WideScreen/HeroSlide/Hero';
-import WideScreenWork from './src/Slides/WideScreen/WorkSlide/Work';
-import WideScreenSkills from './src/Slides/WideScreen/Skills';
-import WideScreenContact from './src/Slides/WideScreen/ContactSlide/Contact';
-import MobileHero from './src/Slides/Mobile/HeroSlide/Hero';
-import MobileWork from './src/Slides/Mobile/WorkSlide/Work';
-import MobileSkills from './src/Slides/Mobile/Skills';
-import MobileContact from './src/Slides/Mobile/ContactSlide/Contact';
-import './src/Assets/index.css';
+import WideScreenHero from './Slides/WideScreen/HeroSlide/Hero';
+import WideScreenWork from './Slides/WideScreen/WorkSlide/Work';
+import WideScreenSkills from './Slides/WideScreen/Skills';
+import WideScreenContact from './Slides/WideScreen/ContactSlide/Contact';
+import MobileHero from './Slides/Mobile/HeroSlide/Hero';
+import MobileWork from './Slides/Mobile/WorkSlide/Work';
+import MobileSkills from './Slides/Mobile/Skills';
+import MobileContact from './Slides/Mobile/ContactSlide/Contact';
+import './Assets/index.css';
 
 const GlobalStyle = createGlobalStyle`
 html, body { margin: 0;}
