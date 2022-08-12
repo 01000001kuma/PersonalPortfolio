@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/01000001kuma/My-Portfolio/issues"
   },
-  "homepage": "https://01000001kuma.github.io/adrianmolina",
+  "homepage": "https://01000001kuma.github.io/adrianmolina/", 
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
