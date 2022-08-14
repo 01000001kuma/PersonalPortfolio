@@ -38176,6 +38176,11 @@ module.hot.accept(reloadCSS);
 },{"./Fonts/Avenir/Avenir-Light-07.ttf":[["Avenir-Light-07.0f87d3ed.ttf","Assets/Fonts/Avenir/Avenir-Light-07.ttf"],"Assets/Fonts/Avenir/Avenir-Light-07.ttf"],"./Fonts/Avenir/Avenir-Roman-12.ttf":[["Avenir-Roman-12.5e177e9c.ttf","Assets/Fonts/Avenir/Avenir-Roman-12.ttf"],"Assets/Fonts/Avenir/Avenir-Roman-12.ttf"],"./Fonts/Avenir/Avenir-Book-01.ttf":[["Avenir-Book-01.d88b5c28.ttf","Assets/Fonts/Avenir/Avenir-Book-01.ttf"],"Assets/Fonts/Avenir/Avenir-Book-01.ttf"],"./Fonts/Avenir/Avenir-Medium-09.ttf":[["Avenir-Medium-09.2c564d4e.ttf","Assets/Fonts/Avenir/Avenir-Medium-09.ttf"],"Assets/Fonts/Avenir/Avenir-Medium-09.ttf"],"./Fonts/Avenir/Avenir-Heavy-05.ttf":[["Avenir-Heavy-05.cab84c3f.ttf","Assets/Fonts/Avenir/Avenir-Heavy-05.ttf"],"Assets/Fonts/Avenir/Avenir-Heavy-05.ttf"],"./Fonts/Valencia/Valencia.ttf":[["Valencia.a0ebc654.ttf","Assets/Fonts/Valencia/Valencia.ttf"],"Assets/Fonts/Valencia/Valencia.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"App.js":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = require("react-dom");
@@ -38269,6 +38274,8 @@ var App = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 
 (0, _reactDom.render)(_react.default.createElement(App), document.getElementById('root'));
+var _default = App;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-responsive":"../node_modules/react-responsive/dist/react-responsive.js","./Slides/WideScreen/HeroSlide/Hero":"Slides/WideScreen/HeroSlide/Hero.js","./Slides/WideScreen/WorkSlide/Work":"Slides/WideScreen/WorkSlide/Work.js","./Slides/WideScreen/Skills":"Slides/WideScreen/Skills.js","./Slides/WideScreen/ContactSlide/Contact":"Slides/WideScreen/ContactSlide/Contact.js","./Slides/Mobile/HeroSlide/Hero":"Slides/Mobile/HeroSlide/Hero.js","./Slides/Mobile/WorkSlide/Work":"Slides/Mobile/WorkSlide/Work.js","./Slides/Mobile/Skills":"Slides/Mobile/Skills.js","./Slides/Mobile/ContactSlide/Contact":"Slides/Mobile/ContactSlide/Contact.js","./Assets/index.css":"Assets/index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -38297,7 +38304,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36901" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43759" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
