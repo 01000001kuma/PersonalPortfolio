@@ -33696,7 +33696,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var size = {
+const size = {
   mobileS: '320px',
   mobileM: '375px',
   mobileL: '425px',
@@ -33705,15 +33705,15 @@ var size = {
   laptopL: '1440px',
   desktop: '2560px'
 };
-var device = {
-  mobileS: "(min-width: ".concat(size.mobileS, ")"),
-  mobileM: "(min-width: ".concat(size.mobileM, ")"),
-  mobileL: "(min-width: ".concat(size.mobileL, ")"),
-  tablet: "(min-width: ".concat(size.tablet, ")"),
-  laptop: "(min-width: ".concat(size.laptop, ")"),
-  laptopL: "(min-width: ".concat(size.laptopL, ")"),
-  desktop: "(min-width: ".concat(size.desktop, ")"),
-  desktopL: "(min-width: ".concat(size.desktop, ")")
+const device = {
+  mobileS: `(min-width: ${size.mobileS})`,
+  mobileM: `(min-width: ${size.mobileM})`,
+  mobileL: `(min-width: ${size.mobileL})`,
+  tablet: `(min-width: ${size.tablet})`,
+  laptop: `(min-width: ${size.laptop})`,
+  laptopL: `(min-width: ${size.laptopL})`,
+  desktop: `(min-width: ${size.desktop})`,
+  desktopL: `(min-width: ${size.desktop})`
 };
 var _default = device;
 exports.default = _default;
@@ -33733,113 +33733,113 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Stage = _styledComponents.default.div`
+position: relative;
+/* border:1px solid black; */
+z-index: 1;
+width:100%;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+const moveUp = init => (0, _styledComponents.keyframes)`
+0%{
+    transform: translateY(${init}px);
+}
+100%{
+    transform: translateY(0px);
+}
+`;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+const hideWhiteBlocks = () => (0, _styledComponents.keyframes)`
+0%{
+    opacity: 1;
+    height: 35vh;
+}
+100%{
+    opacity: 0;
+    height: 0vh;
+}
+`;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+const TextToReveal = _styledComponents.default.div`
+  font-family: ${props => props.fontFam};
+  text-align:center;
+  @media ${_breakpoints.default.tablet} {
+    font-size: 100px;
+    animation: ${props => props.reveal ? moveUp(100) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${100 * 1.4}px);
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 140px;
+    animation: ${props => props.reveal ? moveUp(140) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${140 * 1.4}px);
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 150px;
+    animation: ${props => props.reveal ? moveUp(150) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${150 * 1.4}px);
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 200px;
+    animation: ${props => props.reveal ? moveUp(200) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${200 * 1.4}px);
+  }
+`;
+const WhiteBlock = _styledComponents.default.div`
+position: absolute;
+background-color: white;
+margin-right:100%;
+width: 120%;
+height: 35vh;
+animation: ${hideWhiteBlocks} 0.5s linear forwards;
+animation-delay: 2s;
+/* border: 1px solid grey; */
+`;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Stage = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nposition: relative;\n/* border:1px solid black; */\nz-index: 1;\nwidth:100%;\n"])));
-
-var moveUp = function moveUp(init) {
-  return (0, _styledComponents.keyframes)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n0%{\n    transform: translateY(", "px);\n}\n100%{\n    transform: translateY(0px);\n}\n"])), init);
-};
-
-var hideWhiteBlocks = function hideWhiteBlocks() {
-  return (0, _styledComponents.keyframes)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n0%{\n    opacity: 1;\n    height: 35vh;\n}\n100%{\n    opacity: 0;\n    height: 0vh;\n}\n"])));
-};
-
-var TextToReveal = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-family: ", ";\n  text-align:center;\n  @media ", " {\n    font-size: 100px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 140px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 150px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 200px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n"])), function (props) {
-  return props.fontFam;
-}, _breakpoints.default.tablet, function (props) {
-  return props.reveal ? moveUp(100) : 'none';
-}, 100 * 1.4, _breakpoints.default.laptop, function (props) {
-  return props.reveal ? moveUp(140) : 'none';
-}, 140 * 1.4, _breakpoints.default.laptopL, function (props) {
-  return props.reveal ? moveUp(150) : 'none';
-}, 150 * 1.4, _breakpoints.default.desktop, function (props) {
-  return props.reveal ? moveUp(200) : 'none';
-}, 200 * 1.4);
-
-var WhiteBlock = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\nposition: absolute;\nbackground-color: white;\nmargin-right:100%;\nwidth: 120%;\nheight: 35vh;\nanimation: ", " 0.5s linear forwards;\nanimation-delay: 2s;\n/* border: 1px solid grey; */\n"])), hideWhiteBlocks);
-
-var NameReveal = /*#__PURE__*/function (_Component) {
-  _inherits(NameReveal, _Component);
-
-  var _super = _createSuper(NameReveal);
-
-  function NameReveal(props) {
-    var _this;
-
-    _classCallCheck(this, NameReveal);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class NameReveal extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       reveal: false
     };
-    _this.revealText = _this.revealText.bind(_assertThisInitialized(_this));
-    return _this;
+    this.revealText = this.revealText.bind(this);
   }
 
-  _createClass(NameReveal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var timeDelay = this.props.timeDelay;
-      this.revealText(timeDelay);
-    }
-  }, {
-    key: "revealText",
-    value: function revealText(timeout) {
-      var _this2 = this;
+  componentDidMount() {
+    const {
+      timeDelay
+    } = this.props;
+    this.revealText(timeDelay);
+  }
 
-      setTimeout(function () {
-        _this2.setState({
-          reveal: true
-        });
-      }, timeout);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          text = _this$props.text,
-          fontFam = _this$props.fontFam;
-      var reveal = this.state.reveal;
-      return /*#__PURE__*/_react.default.createElement(Stage, null, /*#__PURE__*/_react.default.createElement(TextToReveal, {
-        fontFam: fontFam,
-        reveal: reveal
-      }, text), /*#__PURE__*/_react.default.createElement(WhiteBlock, null));
-    }
-  }]);
+  revealText(timeout) {
+    setTimeout(() => {
+      this.setState({
+        reveal: true
+      });
+    }, timeout);
+  }
 
-  return NameReveal;
-}(_react.Component);
+  render() {
+    const {
+      text,
+      fontFam
+    } = this.props;
+    const {
+      reveal
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement(Stage, null, /*#__PURE__*/_react.default.createElement(TextToReveal, {
+      fontFam: fontFam,
+      reveal: reveal
+    }, text), /*#__PURE__*/_react.default.createElement(WhiteBlock, null));
+  }
+
+}
 
 NameReveal.propTypes = {
   text: _propTypes.default.string.isRequired,
@@ -33867,117 +33867,114 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Stage = _styledComponents.default.div`
+position: relative;
+/* border:1px solid black; */
+z-index: 1;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+const moveUp = init => (0, _styledComponents.keyframes)`
+0%{
+    transform: translateY(${init}px);
+}
+100%{
+    transform: translateY(0px);
+}
+`;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+const hideWhiteBlocks = () => (0, _styledComponents.keyframes)`
+0%{
+    opacity: 1;
+    height: 35vh;
+}
+100%{
+    opacity: 0;
+    height: 0vh;
+}
+`;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+const TextToReveal = _styledComponents.default.div`
+  font-family: ${props => props.fontFam};
+  text-align:center;
+  animation: ${props => props.reveal ? moveUp(props.fontSizeInPx) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+  transform: translateY(${props => props.fontSizeInPx * 1.4}px);
+  @media ${_breakpoints.default.tablet} {
+    font-size: 28px;
+    animation: ${props => props.reveal ? moveUp(28) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${28 * 1.4}px);
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 40px;
+    animation: ${props => props.reveal ? moveUp(40) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${40 * 1.4}px);
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 50px;
+    animation: ${props => props.reveal ? moveUp(50) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${50 * 1.4}px);
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 60px;
+    animation: ${props => props.reveal ? moveUp(60) : 'none'} 1s cubic-bezier(0, 0.1, .12, .99) forwards;
+    transform: translateY(${60 * 1.4}px);
+  }
+`;
+const WhiteBlock = _styledComponents.default.div`
+position: absolute;
+background-color: white;
+margin-right:100%;
+width: 120%;
+height: 35vh;
+animation: ${hideWhiteBlocks} 0.5s linear forwards;
+animation-delay: 2s;
+/* border: 1px solid grey; */
+`;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Stage = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nposition: relative;\n/* border:1px solid black; */\nz-index: 1;\n"])));
-
-var moveUp = function moveUp(init) {
-  return (0, _styledComponents.keyframes)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n0%{\n    transform: translateY(", "px);\n}\n100%{\n    transform: translateY(0px);\n}\n"])), init);
-};
-
-var hideWhiteBlocks = function hideWhiteBlocks() {
-  return (0, _styledComponents.keyframes)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n0%{\n    opacity: 1;\n    height: 35vh;\n}\n100%{\n    opacity: 0;\n    height: 0vh;\n}\n"])));
-};
-
-var TextToReveal = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-family: ", ";\n  text-align:center;\n  animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n  transform: translateY(", "px);\n  @media ", " {\n    font-size: 28px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 40px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 50px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n  @media ", " {\n    font-size: 60px;\n    animation: ", " 1s cubic-bezier(0, 0.1, .12, .99) forwards;\n    transform: translateY(", "px);\n  }\n"])), function (props) {
-  return props.fontFam;
-}, function (props) {
-  return props.reveal ? moveUp(props.fontSizeInPx) : 'none';
-}, function (props) {
-  return props.fontSizeInPx * 1.4;
-}, _breakpoints.default.tablet, function (props) {
-  return props.reveal ? moveUp(28) : 'none';
-}, 28 * 1.4, _breakpoints.default.laptop, function (props) {
-  return props.reveal ? moveUp(40) : 'none';
-}, 40 * 1.4, _breakpoints.default.laptopL, function (props) {
-  return props.reveal ? moveUp(50) : 'none';
-}, 50 * 1.4, _breakpoints.default.desktop, function (props) {
-  return props.reveal ? moveUp(60) : 'none';
-}, 60 * 1.4);
-
-var WhiteBlock = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\nposition: absolute;\nbackground-color: white;\nmargin-right:100%;\nwidth: 120%;\nheight: 35vh;\nanimation: ", " 0.5s linear forwards;\nanimation-delay: 2s;\n/* border: 1px solid grey; */\n"])), hideWhiteBlocks);
-
-var TitleReveal = /*#__PURE__*/function (_Component) {
-  _inherits(TitleReveal, _Component);
-
-  var _super = _createSuper(TitleReveal);
-
-  function TitleReveal(props) {
-    var _this;
-
-    _classCallCheck(this, TitleReveal);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class TitleReveal extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       reveal: false
     };
-    _this.revealText = _this.revealText.bind(_assertThisInitialized(_this));
-    return _this;
+    this.revealText = this.revealText.bind(this);
   }
 
-  _createClass(TitleReveal, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var timeDelay = this.props.timeDelay;
-      this.revealText(timeDelay);
-    }
-  }, {
-    key: "revealText",
-    value: function revealText(timeout) {
-      var _this2 = this;
+  componentDidMount() {
+    const {
+      timeDelay
+    } = this.props;
+    this.revealText(timeDelay);
+  }
 
-      setTimeout(function () {
-        _this2.setState({
-          reveal: true
-        });
-      }, timeout);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          text = _this$props.text,
-          fontFam = _this$props.fontFam;
-      var reveal = this.state.reveal;
-      return /*#__PURE__*/_react.default.createElement(Stage, null, /*#__PURE__*/_react.default.createElement(TextToReveal, {
-        fontFam: fontFam,
-        reveal: reveal
-      }, text), /*#__PURE__*/_react.default.createElement(WhiteBlock, null));
-    }
-  }]);
+  revealText(timeout) {
+    setTimeout(() => {
+      this.setState({
+        reveal: true
+      });
+    }, timeout);
+  }
 
-  return TitleReveal;
-}(_react.Component);
+  render() {
+    const {
+      text,
+      fontFam
+    } = this.props;
+    const {
+      reveal
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement(Stage, null, /*#__PURE__*/_react.default.createElement(TextToReveal, {
+      fontFam: fontFam,
+      reveal: reveal
+    }, text), /*#__PURE__*/_react.default.createElement(WhiteBlock, null));
+  }
+
+}
 
 TitleReveal.propTypes = {
   text: _propTypes.default.string.isRequired,
@@ -34005,68 +34002,37 @@ var _NameReveal = _interopRequireDefault(require("./NameReveal"));
 
 var _TitleReveal = _interopRequireDefault(require("./TitleReveal"));
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.div`
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    width:100%;
+    background-color: white;
+    /* border: 1px solid blue; */
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: column nowrap;\n    justify-content: center;\n    align-items: center;\n    height:100vh;\n    width:100%;\n    background-color: white;\n    /* border: 1px solid blue; */\n"])));
-
-var NameAndJobTitle = /*#__PURE__*/function (_Component) {
-  _inherits(NameAndJobTitle, _Component);
-
-  var _super = _createSuper(NameAndJobTitle);
-
-  function NameAndJobTitle() {
-    _classCallCheck(this, NameAndJobTitle);
-
-    return _super.apply(this, arguments);
+class NameAndJobTitle extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(_NameReveal.default, {
+      text: "Adrian Molina",
+      fontFam: "Valencia",
+      timeDelay: 500
+    }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_TitleReveal.default, {
+      text: "Full Stack Developer",
+      fontFam: "AvenirRoman",
+      timeDelay: 1300
+    }));
   }
 
-  _createClass(NameAndJobTitle, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(_NameReveal.default, {
-        text: "Adrian Molina",
-        fontFam: "Valencia",
-        timeDelay: 500
-      }), /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement(_TitleReveal.default, {
-        text: "Full Stack Developer",
-        fontFam: "AvenirRoman",
-        timeDelay: 1300
-      }));
-    }
-  }]);
-
-  return NameAndJobTitle;
-}(_react.Component);
+}
 
 var _default = NameAndJobTitle;
 exports.default = _default;
@@ -34084,107 +34050,108 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 40vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
-
-var AboutMeTitle = _styledComponents.default.div.attrs({
-  style: function style(_ref) {
-    var scrollPercent = _ref.scrollPercent;
+const Container = _styledComponents.default.section`
+    height: 40vh;/* Since pageSplitTime is 1.4 */
+    width:100%;
+    /* border: 1px solid blue; */
+    position: relative;
+    overflow: hidden;
+`;
+const AboutMeTitle = _styledComponents.default.div.attrs({
+  style: _ref => {
+    let {
+      scrollPercent
+    } = _ref;
     return {
-      transform: "translateX(".concat(scrollPercent * 5.5, "%)")
+      transform: `translateX(${scrollPercent * 5.5}%)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  transition: transform 0.5s ease-out;\n  font-family: 'AvenirHeavy';\n  position: absolute;\n  color: #EEE;\n  top:5%;\n  left:-15%;\n  @media ", " {\n    font-size: 180px;\n  }\n  @media ", " {\n    font-size: 200px;\n  }\n  @media ", " {\n    font-size: 350px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
+})`
+  transition: transform 0.5s ease-out;
+  font-family: 'AvenirHeavy';
+  position: absolute;
+  color: #EEE;
+  top:5%;
+  left:-15%;
+  @media ${_breakpoints.default.laptop} {
+    font-size: 180px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 200px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 350px;
+  }
+`;
+const AboutMeDescription = _styledComponents.default.div`
+  align-items: center;
+  font-family: 'AvenirLight';
+  text-align: left;
+  margin-left: 30%;
+  margin-right: 5%;
+  @media ${_breakpoints.default.laptop} {
+    transform: translateY(90%);
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    transform: translateY(87%);
+    font-size: 38px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    transform: translateY(80%);
+    font-size: 70px;
+  }
+`;
 
-var AboutMeDescription = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  align-items: center;\n  font-family: 'AvenirLight';\n  text-align: left;\n  margin-left: 30%;\n  margin-right: 5%;\n  @media ", " {\n    transform: translateY(90%);\n    font-size: 30px;\n  }\n  @media ", " {\n    transform: translateY(87%);\n    font-size: 38px;\n  }\n  @media ", " {\n    transform: translateY(80%);\n    font-size: 70px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var AboutMe = /*#__PURE__*/function (_Component) {
-  _inherits(AboutMe, _Component);
-
-  var _super = _createSuper(AboutMe);
-
-  function AboutMe(props) {
-    var _this;
-
-    _classCallCheck(this, AboutMe);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class AboutMe extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       scrollPercent: 0
     };
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  _createClass(AboutMe, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll(event) {
-      var _event$srcElement = event.srcElement,
-          body = _event$srcElement.body,
-          documentElement = _event$srcElement.documentElement;
-      var sd = Math.max(body.scrollTop, documentElement.scrollTop);
-      var sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
-      var maxlimit = documentElement.clientHeight * 150 / documentElement.scrollHeight;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
 
-      if (sp >= 0 && sp <= maxlimit) {
-        this.setState({
-          scrollPercent: sp
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.state.scrollPercent;
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeTitle, {
-        scrollPercent: scrollPercent
-      }, "ABOUT ME"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
-    }
-  }]);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return AboutMe;
-}(_react.Component);
+  handleScroll(event) {
+    const {
+      body,
+      documentElement
+    } = event.srcElement;
+    const sd = Math.max(body.scrollTop, documentElement.scrollTop);
+    const sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
+    const maxlimit = documentElement.clientHeight * 150 / documentElement.scrollHeight;
+
+    if (sp >= 0 && sp <= maxlimit) {
+      this.setState({
+        scrollPercent: sp
+      });
+    }
+  }
+
+  render() {
+    const {
+      scrollPercent
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeTitle, {
+      scrollPercent: scrollPercent
+    }, "ABOUT ME"), /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
+  }
+
+}
 
 var _default = AboutMe;
 exports.default = _default;
@@ -34208,48 +34175,12 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var Hero = /*#__PURE__*/function (_Component) {
-  _inherits(Hero, _Component);
-
-  var _super = _createSuper(Hero);
-
-  function Hero() {
-    _classCallCheck(this, Hero);
-
-    return _super.apply(this, arguments);
+class Hero extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_NameAndJobTitle.default, null), /*#__PURE__*/_react.default.createElement(_AboutMe.default, null));
   }
 
-  _createClass(Hero, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_NameAndJobTitle.default, null), /*#__PURE__*/_react.default.createElement(_AboutMe.default, null));
-    }
-  }]);
-
-  return Hero;
-}(_react.Component);
+}
 
 var _default = Hero;
 exports.default = _default;
@@ -34269,150 +34200,222 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const TextContainer = _styledComponents.default.section`
+position: fixed;
+top:0;
+left:0;
+display: flex;
+flex-flow: column nowrap;
+/* border: 1px dashed black; */
+height:100vh;
+width: 50%;
+`;
+const ProjectName = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.laptop} {
+    font-size: 70px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 80px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 120px;
+  }
+  /* border: 1px dashed black; */
+`;
+const ProjectDesc = _styledComponents.default.div`
+  padding-top:2%;
+  font-family: 'AvenirBook';
+  @media ${_breakpoints.default.laptop} {
+    font-size: 25px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 50px;
+  }
+  /* border: 1px dashed black; */
+`;
+const MyRole = _styledComponents.default.div`
+  padding-top:5%;
+  font-family: 'AvenirMedium';
+  @media ${_breakpoints.default.laptop} {
+    font-size: 25px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 50px;
+  }
+  /* border: 1px dashed black; */
+`;
+const ProjectID = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.laptop} {
+    font-size: 25px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 58px;
+  }
+  /* border: 1px dashed black; */
+  padding: 5%;
+`;
+const ProjectType = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.laptop} {
+    font-size: 25px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 58px;
+  }
+  /* border: 1px dashed black; */
+  padding: 5%;
+`;
+const ProjectDetails = _styledComponents.default.div`
+display: flex;
+flex-flow: column nowrap;
+/* border: 1px dashed black; */
+width: 100%;
+padding: 5%;
+padding-left:10%;
+`;
+const ProjectDetailsContainer = _styledComponents.default.div`
+display: flex;
+flex-flow: column nowrap;
+align-items: center;
+/* border: 2px solid black; */
+padding-top:5%;
+height: 100%;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+const appearText = () => (0, _styledComponents.keyframes)`
+0%{
+  color: #FFF;
+}
+100%{
+  color: #333;
+}
+`;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+const revBlock = () => (0, _styledComponents.keyframes)`
+0%{
+    left: 0;
+    width: 0%
+}
+50%{
+    left:0%;
+    width:100%
+}
+100%{
+    left:100%;
+    width:0%
+}
+`;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+let BlockTextReveal = _styledComponents.default.span`
+`;
+const BlockTextRevealQuick = _styledComponents.default.span`
+display:${props => props.inline ? 'inline' : 'block'};
+color: #FFF;
+animation: ${appearText} 0.0001s linear forwards;
+animation-delay: 0.5s;
+position: relative;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+&::after{
+content:'';
+top:0;
+left:0;
+position:absolute;
+width:0%;
+height:100%;
+background: #222;
+animation: ${revBlock} 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+animation-delay:0s;
+}
+`;
+const BlockTextRevealNoAnim = _styledComponents.default.span`
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+`;
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var TextContainer = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nposition: fixed;\ntop:0;\nleft:0;\ndisplay: flex;\nflex-flow: column nowrap;\n/* border: 1px dashed black; */\nheight:100vh;\nwidth: 50%;\n"])));
-
-var ProjectName = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 70px;\n  }\n  @media ", " {\n    font-size: 80px;\n  }\n  @media ", " {\n    font-size: 120px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectDesc = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  padding-top:2%;\n  font-family: 'AvenirBook';\n  @media ", " {\n    font-size: 25px;\n  }\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var MyRole = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  padding-top:5%;\n  font-family: 'AvenirMedium';\n  @media ", " {\n    font-size: 25px;\n  }\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectID = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 25px;\n  }\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 58px;\n  }\n  /* border: 1px dashed black; */\n  padding: 5%;\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectType = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 25px;\n  }\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 58px;\n  }\n  /* border: 1px dashed black; */\n  padding: 5%;\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectDetails = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\ndisplay: flex;\nflex-flow: column nowrap;\n/* border: 1px dashed black; */\nwidth: 100%;\npadding: 5%;\npadding-left:10%;\n"])));
-
-var ProjectDetailsContainer = _styledComponents.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\ndisplay: flex;\nflex-flow: column nowrap;\nalign-items: center;\n/* border: 2px solid black; */\npadding-top:5%;\nheight: 100%;\n"])));
-
-var appearText = function appearText() {
-  return (0, _styledComponents.keyframes)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n0%{\n  color: #FFF;\n}\n100%{\n  color: #333;\n}\n"])));
-};
-
-var revBlock = function revBlock() {
-  return (0, _styledComponents.keyframes)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n0%{\n    left: 0;\n    width: 0%\n}\n50%{\n    left:0%;\n    width:100%\n}\n100%{\n    left:100%;\n    width:0%\n}\n"])));
-};
-
-var BlockTextReveal = _styledComponents.default.span(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n"])));
-
-var BlockTextRevealQuick = _styledComponents.default.span(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\ndisplay:", ";\ncolor: #FFF;\nanimation: ", " 0.0001s linear forwards;\nanimation-delay: 0.5s;\nposition: relative;\n\n\n\n&::after{\ncontent:'';\ntop:0;\nleft:0;\nposition:absolute;\nwidth:0%;\nheight:100%;\nbackground: #222;\nanimation: ", " 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;\nanimation-delay:0s;\n}\n"])), function (props) {
-  return props.inline ? 'inline' : 'block';
-}, appearText, revBlock);
-
-var BlockTextRevealNoAnim = _styledComponents.default.span(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n\n"])));
-
-var TextContent = /*#__PURE__*/function (_Component) {
-  _inherits(TextContent, _Component);
-
-  var _super = _createSuper(TextContent);
-
-  function TextContent(props) {
-    var _this;
-
-    _classCallCheck(this, TextContent);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class TextContent extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       refreshBlock: false
     };
-    _this.refresh = _this.refresh.bind(_assertThisInitialized(_this));
-    return _this;
+    this.refresh = this.refresh.bind(this);
   }
 
-  _createClass(TextContent, [{
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      this.refresh(nextProps);
-    }
-  }, {
-    key: "refresh",
-    value: function refresh(nextProps) {
-      var _this2 = this;
+  componentWillReceiveProps(nextProps) {
+    this.refresh(nextProps);
+  }
 
-      var refreshToggle = nextProps.refreshToggle;
+  refresh(nextProps) {
+    const {
+      refreshToggle
+    } = nextProps;
 
-      if (refreshToggle) {
-        BlockTextReveal = BlockTextRevealNoAnim;
+    if (refreshToggle) {
+      BlockTextReveal = BlockTextRevealNoAnim;
+      this.setState({
+        refreshBlock: true
+      }, () => {
+        BlockTextReveal = BlockTextRevealQuick;
         this.setState({
-          refreshBlock: true
-        }, function () {
-          BlockTextReveal = BlockTextRevealQuick;
-
-          _this2.setState({
-            refreshBlock: false
-          });
+          refreshBlock: false
         });
-      }
+      });
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          number = _this$props.number,
-          projectName = _this$props.projectName,
-          projectDesc = _this$props.projectDesc,
-          roles = _this$props.roles,
-          projectType = _this$props.projectType,
-          refreshToggle = _this$props.refreshToggle;
-      return /*#__PURE__*/_react.default.createElement(TextContainer, null, /*#__PURE__*/_react.default.createElement(ProjectID, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, number)), /*#__PURE__*/_react.default.createElement(ProjectDetailsContainer, null, /*#__PURE__*/_react.default.createElement(ProjectDetails, null, /*#__PURE__*/_react.default.createElement(ProjectName, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, projectName)), /*#__PURE__*/_react.default.createElement(MyRole, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, roles.map(function (role, index, arr) {
-        return index === arr.length - 1 ? /*#__PURE__*/_react.default.createElement("span", {
-          key: role
-        }, role) : /*#__PURE__*/_react.default.createElement("span", {
-          key: role
-        }, role, "\xA0 \u2022 \xA0");
-      }))), /*#__PURE__*/_react.default.createElement(ProjectDesc, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: false
-      }, projectDesc)))), /*#__PURE__*/_react.default.createElement(ProjectType, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, projectType)));
-    }
-  }]);
+  }
 
-  return TextContent;
-}(_react.Component);
+  render() {
+    const {
+      number,
+      projectName,
+      projectDesc,
+      roles,
+      projectType,
+      refreshToggle
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement(TextContainer, null, /*#__PURE__*/_react.default.createElement(ProjectID, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, number)), /*#__PURE__*/_react.default.createElement(ProjectDetailsContainer, null, /*#__PURE__*/_react.default.createElement(ProjectDetails, null, /*#__PURE__*/_react.default.createElement(ProjectName, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, projectName)), /*#__PURE__*/_react.default.createElement(MyRole, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, roles.map((role, index, arr) => index === arr.length - 1 ? /*#__PURE__*/_react.default.createElement("span", {
+      key: role
+    }, role) : /*#__PURE__*/_react.default.createElement("span", {
+      key: role
+    }, role, "\xA0 \u2022 \xA0")))), /*#__PURE__*/_react.default.createElement(ProjectDesc, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: false
+    }, projectDesc)))), /*#__PURE__*/_react.default.createElement(ProjectType, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, projectType)));
+  }
+
+}
 
 TextContent.propTypes = {
   number: _propTypes.default.string.isRequired,
@@ -34454,120 +34457,119 @@ var _People = _interopRequireDefault(require("../../../../Assets/Images/Voistrap
 
 var _Score = _interopRequireDefault(require("../../../../Assets/Images/Voistrap/Score.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var VoistrapPhoneHome = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const VoistrapPhoneHome = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%)")
+      transform: `translate(0px,-${scroll * 15}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -90vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var VoistrapPhoneMeetings = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -90vh;
+left:0vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const VoistrapPhoneMeetings = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 8}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-45vh;\nright: 2vw;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var VoistrapPhoneScore = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-45vh;
+right: 2vw;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const VoistrapPhoneScore = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 5, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 5}%) scale(0.7)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-75vh;\nleft:2vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var VoistrapPhonePeople = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-75vh;
+left:2vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const VoistrapPhonePeople = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.6)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-55vh;\nright: 5vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-55vh;
+right: 5vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var VoistrapImages = /*#__PURE__*/function (_Component) {
-  _inherits(VoistrapImages, _Component);
-
-  var _super = _createSuper(VoistrapImages);
-
-  function VoistrapImages() {
-    _classCallCheck(this, VoistrapImages);
-
-    return _super.apply(this, arguments);
+class VoistrapImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(VoistrapPhonePeople, {
+      src: _People.default,
+      scroll: scrollPercent,
+      alt: "voistrapPeople"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneScore, {
+      src: _Score.default,
+      scroll: scrollPercent,
+      alt: "voistrapScore"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneMeetings, {
+      src: _Meetings.default,
+      scroll: scrollPercent,
+      alt: "voistrapMeetings"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneHome, {
+      src: _Home.default,
+      scroll: scrollPercent,
+      alt: "voistrapHome"
+    }));
   }
 
-  _createClass(VoistrapImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(VoistrapPhonePeople, {
-        src: _People.default,
-        scroll: scrollPercent,
-        alt: "voistrapPeople"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneScore, {
-        src: _Score.default,
-        scroll: scrollPercent,
-        alt: "voistrapScore"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneMeetings, {
-        src: _Meetings.default,
-        scroll: scrollPercent,
-        alt: "voistrapMeetings"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneHome, {
-        src: _Home.default,
-        scroll: scrollPercent,
-        alt: "voistrapHome"
-      }));
-    }
-  }]);
-
-  return VoistrapImages;
-}(_react.Component);
+}
 
 VoistrapImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -34608,121 +34610,120 @@ var _AddRestaurant = _interopRequireDefault(require("../../../../Assets/Images/W
 
 var _AddFood = _interopRequireDefault(require("../../../../Assets/Images/WhatsMyFood/AddFood.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Restaurant = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Restaurant = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%)")
+      transform: `translate(0px,-${scroll * 15}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -90vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var Home = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -90vh;
+left:0vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const Home = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 8}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-45vh;\nright: 2vw;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var AddFood = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-45vh;
+right: 2vw;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const AddFood = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 5, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 5}%) scale(0.7)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-75vh;\nleft:2vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var AddRestaurant = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-75vh;
+left:2vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const AddRestaurant = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.6)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-55vh;\nright: 5vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-55vh;
+right: 5vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var WhatsMyFoodImages = /*#__PURE__*/function (_Component) {
-  _inherits(WhatsMyFoodImages, _Component);
+class WhatsMyFoodImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1; // console.log('WMF scrollOffsetPercent ', scrollOffsetInPercent);
 
-  var _super = _createSuper(WhatsMyFoodImages);
-
-  function WhatsMyFoodImages() {
-    _classCallCheck(this, WhatsMyFoodImages);
-
-    return _super.apply(this, arguments);
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(AddFood, {
+      src: _AddFood.default,
+      scroll: scrollPercent,
+      alt: "addFood"
+    }), /*#__PURE__*/_react.default.createElement(AddRestaurant, {
+      src: _AddRestaurant.default,
+      scroll: scrollPercent,
+      alt: "addRestaurant"
+    }), /*#__PURE__*/_react.default.createElement(Home, {
+      src: _Home.default,
+      scroll: scrollPercent,
+      alt: "Home"
+    }), /*#__PURE__*/_react.default.createElement(Restaurant, {
+      src: _Restaurant.default,
+      scroll: scrollPercent,
+      alt: "Restaurant"
+    }));
   }
 
-  _createClass(WhatsMyFoodImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1; // console.log('WMF scrollOffsetPercent ', scrollOffsetInPercent);
-
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(AddFood, {
-        src: _AddFood.default,
-        scroll: scrollPercent,
-        alt: "addFood"
-      }), /*#__PURE__*/_react.default.createElement(AddRestaurant, {
-        src: _AddRestaurant.default,
-        scroll: scrollPercent,
-        alt: "addRestaurant"
-      }), /*#__PURE__*/_react.default.createElement(Home, {
-        src: _Home.default,
-        scroll: scrollPercent,
-        alt: "Home"
-      }), /*#__PURE__*/_react.default.createElement(Restaurant, {
-        src: _Restaurant.default,
-        scroll: scrollPercent,
-        alt: "Restaurant"
-      }));
-    }
-  }]);
-
-  return WhatsMyFoodImages;
-}(_react.Component);
+}
 
 WhatsMyFoodImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -34755,94 +34756,75 @@ var _Tablet = _interopRequireDefault(require("../../../../Assets/Images/ComingOr
 
 var _Iphone = _interopRequireDefault(require("../../../../Assets/Images/ComingOrNot/Iphone.png"));
 
-var _templateObject, _templateObject2;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Iphone = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Iphone = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 12, "%)")
+      transform: `translate(0px,-${scroll * 12}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-70vh;\nleft: 0vw;\n/* border: 1px dashed red; */\nheight: 80vh;\n"])));
-
-var Tablet = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-70vh;
+left: 0vw;
+/* border: 1px dashed red; */
+height: 80vh;
+`;
+const Tablet = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.94)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.94)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -40vh;\nright:0vw;\n/* border: 1px dashed red; */\nheight: 80vh; \nfilter: blur(0.6px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -40vh;
+right:0vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+filter: blur(0.6px);
+`;
 
-var ComingOrNotImages = /*#__PURE__*/function (_Component) {
-  _inherits(ComingOrNotImages, _Component);
-
-  var _super = _createSuper(ComingOrNotImages);
-
-  function ComingOrNotImages() {
-    _classCallCheck(this, ComingOrNotImages);
-
-    return _super.apply(this, arguments);
+class ComingOrNotImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Tablet, {
+      src: _Tablet.default,
+      scroll: scrollPercent,
+      alt: "cmgOrNotTablet"
+    }), /*#__PURE__*/_react.default.createElement(Iphone, {
+      src: _Iphone.default,
+      scroll: scrollPercent,
+      alt: "cmgOrNotIphone"
+    }));
   }
 
-  _createClass(ComingOrNotImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Tablet, {
-        src: _Tablet.default,
-        scroll: scrollPercent,
-        alt: "cmgOrNotTablet"
-      }), /*#__PURE__*/_react.default.createElement(Iphone, {
-        src: _Iphone.default,
-        scroll: scrollPercent,
-        alt: "cmgOrNotIphone"
-      }));
-    }
-  }]);
-
-  return ComingOrNotImages;
-}(_react.Component);
+}
 
 ComingOrNotImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -34883,120 +34865,119 @@ var _Lock = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Lock
 
 var _Battery = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Battery.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Heat = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Heat = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%)")
+      transform: `translate(0px,-${scroll * 15}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -90vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var Tyre = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -90vh;
+left:0vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const Tyre = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 8}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-45vh;\nright: 2vw;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var Battery = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-45vh;
+right: 2vw;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const Battery = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 5, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 5}%) scale(0.7)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-75vh;\nleft:2vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var Lock = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-75vh;
+left:2vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const Lock = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.6)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-55vh;\nright: 5vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-55vh;
+right: 5vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var TeslaImages = /*#__PURE__*/function (_Component) {
-  _inherits(TeslaImages, _Component);
-
-  var _super = _createSuper(TeslaImages);
-
-  function TeslaImages() {
-    _classCallCheck(this, TeslaImages);
-
-    return _super.apply(this, arguments);
+class TeslaImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
+      src: _Lock.default,
+      scroll: scrollPercent,
+      alt: "teslaLock"
+    }), /*#__PURE__*/_react.default.createElement(Battery, {
+      src: _Battery.default,
+      scroll: scrollPercent,
+      alt: "teslaBattery"
+    }), /*#__PURE__*/_react.default.createElement(Tyre, {
+      src: _Tyre.default,
+      scroll: scrollPercent,
+      alt: "teslaTyre"
+    }), /*#__PURE__*/_react.default.createElement(Heat, {
+      src: _Heat.default,
+      scroll: scrollPercent,
+      alt: "teslaHeat"
+    }));
   }
 
-  _createClass(TeslaImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
-        src: _Lock.default,
-        scroll: scrollPercent,
-        alt: "teslaLock"
-      }), /*#__PURE__*/_react.default.createElement(Battery, {
-        src: _Battery.default,
-        scroll: scrollPercent,
-        alt: "teslaBattery"
-      }), /*#__PURE__*/_react.default.createElement(Tyre, {
-        src: _Tyre.default,
-        scroll: scrollPercent,
-        alt: "teslaTyre"
-      }), /*#__PURE__*/_react.default.createElement(Heat, {
-        src: _Heat.default,
-        scroll: scrollPercent,
-        alt: "teslaHeat"
-      }));
-    }
-  }]);
-
-  return TeslaImages;
-}(_react.Component);
+}
 
 TeslaImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -35033,107 +35014,98 @@ var _JpnHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/J
 
 var _Player = _interopRequireDefault(require("../../../../Assets/Images/Kosen/Player.png"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var JapaneseTab = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const JapaneseTab = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%)")
+      transform: `translate(0px,-${scroll * 15}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-140vh;\nleft: 0vw;\n/* border: 1px dashed red; */\nheight: 80vh;\n\n"])));
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-140vh;
+left: 0vw;
+/* border: 1px dashed red; */
+height: 80vh;
 
-var EnglishTab = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+`;
+const EnglishTab = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 8}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -120vh;\nright:0.5vw;\n/* border: 1px dashed red; */\nfilter: blur(0.6px);\nheight: 80vh; \n"])));
-
-var PlayerTab = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -120vh;
+right:0.5vw;
+/* border: 1px dashed red; */
+filter: blur(0.6px);
+height: 80vh; 
+`;
+const PlayerTab = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.6)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-65vh;\nleft: 1vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-65vh;
+left: 1vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1px);
+`;
 
-var KosenImages = /*#__PURE__*/function (_Component) {
-  _inherits(KosenImages, _Component);
-
-  var _super = _createSuper(KosenImages);
-
-  function KosenImages() {
-    _classCallCheck(this, KosenImages);
-
-    return _super.apply(this, arguments);
+class KosenImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
+      src: _Player.default,
+      scroll: scrollPercent,
+      alt: "kosenPlayer"
+    }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
+      src: _EnglishHome.default,
+      scroll: scrollPercent,
+      alt: "kosenEnglish"
+    }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
+      src: _JpnHome.default,
+      scroll: scrollPercent,
+      alt: "kosenJapanese"
+    }));
   }
 
-  _createClass(KosenImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
-        src: _Player.default,
-        scroll: scrollPercent,
-        alt: "kosenPlayer"
-      }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
-        src: _EnglishHome.default,
-        scroll: scrollPercent,
-        alt: "kosenEnglish"
-      }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
-        src: _JpnHome.default,
-        scroll: scrollPercent,
-        alt: "kosenJapanese"
-      }));
-    }
-  }]);
-
-  return KosenImages;
-}(_react.Component);
+}
 
 KosenImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -35174,120 +35146,118 @@ var _Paths = _interopRequireDefault(require("../../../../Assets/Images/Showcase/
 
 var _BigBubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/BigBubble.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Dots = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Dots = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 30, "%)")
+      transform: `translate(0px,-${scroll * 30}%)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -240vh;\nleft:0vw;\n/* border: 1px dashed red; */\nheight: 50vh; \n"])));
-
-var Bubbles = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -240vh;
+left:0vw;
+/* border: 1px dashed red; */
+height: 50vh; 
+`;
+const Bubbles = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 23, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 23}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\nposition: absolute;\nbottom:-225vh;\nright: 0vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(0.6px);\n"])));
-
-var BigBubble = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+position: absolute;
+bottom:-225vh;
+right: 0vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+height: 50vh;
+filter: blur(0.6px);
+`;
+const BigBubble = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 10, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 10}%) scale(0.7)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\nbottom:-125vh;\nleft:-4vw;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(0.8px);\n"])));
-
-var Paths = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+bottom:-125vh;
+left:-4vw;
+position: absolute;
+/* border: 1px dashed red; */
+height: 50vh;
+filter: blur(0.8px);
+`;
+const Paths = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 3, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 3}%) scale(0.6)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\nbottom:-80vh;\nright: 1vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 50vh;\nfilter: blur(1.2px);\n"])));
+})`
+bottom:-80vh;
+right: 1vw;
+transform-origin: right center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 50vh;
+filter: blur(1.2px);
+`;
 
-var VoistrapWebImages = /*#__PURE__*/function (_Component) {
-  _inherits(VoistrapWebImages, _Component);
-
-  var _super = _createSuper(VoistrapWebImages);
-
-  function VoistrapWebImages() {
-    _classCallCheck(this, VoistrapWebImages);
-
-    return _super.apply(this, arguments);
+class VoistrapWebImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
+      src: _Paths.default,
+      scroll: scrollPercent,
+      alt: "paths"
+    }), /*#__PURE__*/_react.default.createElement(BigBubble, {
+      src: _BigBubble.default,
+      scroll: scrollPercent,
+      alt: "bigBubble"
+    }), /*#__PURE__*/_react.default.createElement(Bubbles, {
+      src: _Bubble.default,
+      scroll: scrollPercent,
+      alt: "bubbles"
+    }), /*#__PURE__*/_react.default.createElement(Dots, {
+      src: _Dots.default,
+      scroll: scrollPercent,
+      alt: "dots"
+    }));
   }
 
-  _createClass(VoistrapWebImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
-        src: _Paths.default,
-        scroll: scrollPercent,
-        alt: "paths"
-      }), /*#__PURE__*/_react.default.createElement(BigBubble, {
-        src: _BigBubble.default,
-        scroll: scrollPercent,
-        alt: "bigBubble"
-      }), /*#__PURE__*/_react.default.createElement(Bubbles, {
-        src: _Bubble.default,
-        scroll: scrollPercent,
-        alt: "bubbles"
-      }), /*#__PURE__*/_react.default.createElement(Dots, {
-        src: _Dots.default,
-        scroll: scrollPercent,
-        alt: "dots"
-      }));
-    }
-  }]);
-
-  return VoistrapWebImages;
-}(_react.Component);
+}
 
 VoistrapWebImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -35324,158 +35294,131 @@ var _KosenImages = _interopRequireDefault(require("./ParallaxImages/KosenImages"
 
 var _VoistrapWebImages = _interopRequireDefault(require("./ParallaxImages/VoistrapWebImages"));
 
-var _templateObject, _templateObject2;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const ImageContainer = _styledComponents.default.div`
+/* border: 0.1px dashed black; */
+margin-left:50%;
+width:50%;
+height:900vh;
+display: flex;
+flex-flow: column nowrap;
+`;
+const ImageBox = _styledComponents.default.div`
+/* outline: 0.1px dashed green; */
+margin-top:40vh;
+height: 100vh;
+position: relative;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var ImageContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 0.1px dashed black; */\nmargin-left:50%;\nwidth:50%;\nheight:900vh;\ndisplay: flex;\nflex-flow: column nowrap;\n"])));
-
-var ImageBox = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n/* outline: 0.1px dashed green; */\nmargin-top:40vh;\nheight: 100vh;\nposition: relative;\n"])));
-
-var ImageContent = /*#__PURE__*/function (_Component) {
-  _inherits(ImageContent, _Component);
-
-  var _super = _createSuper(ImageContent);
-
-  function ImageContent(props) {
-    var _this;
-
-    _classCallCheck(this, ImageContent);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class ImageContent extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       screenHeight: 0,
       scrollHeight: 0,
       scrollPercent: 0
     };
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  _createClass(ImageContent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
-      this.setState({
-        scrollHeight: Math.round(window.document.documentElement.scrollHeight)
-      });
-      this.setState({
-        screenHeight: Math.round(window.document.documentElement.clientHeight)
-      });
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll() {
-      var _window$document = window.document,
-          body = _window$document.body,
-          documentElement = _window$document.documentElement;
-      var sd = Math.max(body.scrollTop, documentElement.scrollTop);
-      var sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
-      var minlimit = documentElement.clientHeight * 100 / documentElement.scrollHeight;
-      var maxlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      scrollHeight: Math.round(window.document.documentElement.scrollHeight)
+    });
+    this.setState({
+      screenHeight: Math.round(window.document.documentElement.clientHeight)
+    });
+  }
 
-      if (sp >= minlimit && sp <= maxlimit) {
-        this.setState({
-          scrollPercent: sp
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          scrollPercent = _this$state.scrollPercent,
-          scrollHeight = _this$state.scrollHeight,
-          screenHeight = _this$state.screenHeight;
-      var pageSplitTimes = this.props.pageSplitTimes;
-      var boxHeight = pageSplitTimes * 100;
-      return /*#__PURE__*/_react.default.createElement(ImageContainer, null, /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_VoistrapImages.default, {
-        boxHeight: boxHeight,
-        index: 1,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_WhatsMyFoodImages.default, {
-        boxHeight: boxHeight,
-        index: 2,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_ComingOrNotImages.default, {
-        boxHeight: boxHeight,
-        index: 3,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
-        boxHeight: boxHeight,
-        index: 4,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
-        boxHeight: boxHeight,
-        index: 5,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
-        boxHeight: boxHeight,
-        index: 6,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })));
-    }
-  }]);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return ImageContent;
-}(_react.Component);
+  handleScroll() {
+    const {
+      body,
+      documentElement
+    } = window.document;
+    const sd = Math.max(body.scrollTop, documentElement.scrollTop);
+    const sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
+    const minlimit = documentElement.clientHeight * 100 / documentElement.scrollHeight;
+    const maxlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+
+    if (sp >= minlimit && sp <= maxlimit) {
+      this.setState({
+        scrollPercent: sp
+      });
+    }
+  }
+
+  render() {
+    const {
+      scrollPercent,
+      scrollHeight,
+      screenHeight
+    } = this.state;
+    const {
+      pageSplitTimes
+    } = this.props;
+    const boxHeight = pageSplitTimes * 100;
+    return /*#__PURE__*/_react.default.createElement(ImageContainer, null, /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_VoistrapImages.default, {
+      boxHeight: boxHeight,
+      index: 1,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_WhatsMyFoodImages.default, {
+      boxHeight: boxHeight,
+      index: 2,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_ComingOrNotImages.default, {
+      boxHeight: boxHeight,
+      index: 3,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
+      boxHeight: boxHeight,
+      index: 4,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
+      boxHeight: boxHeight,
+      index: 5,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
+      boxHeight: boxHeight,
+      index: 6,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })));
+  }
+
+}
 
 ImageContent.propTypes = {
   pageSplitTimes: _propTypes.default.number.isRequired
@@ -35498,60 +35441,30 @@ var _TextContent = _interopRequireDefault(require("./TextContent"));
 
 var _ImageContent = _interopRequireDefault(require("./ImageContent"));
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.div`
+    display: flex;
+    flex-flow: row nowrap;
+    /* border: 1px dashed red; */
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: row nowrap;\n    /* border: 1px dashed red; */\n"])));
-
-var Work = /*#__PURE__*/function (_Component) {
-  _inherits(Work, _Component);
-
-  var _super = _createSuper(Work);
-
-  function Work(props) {
-    var _this;
-
-    _classCallCheck(this, Work);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class Work extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       vh: 0,
       slideNumber: 0
     };
-    _this.pageSplitTimes = 1.4;
-    _this.lastScrollTop = 0;
-    _this.scrollDirectionDown = true;
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    _this.workDetails = [{
+    this.pageSplitTimes = 1.4;
+    this.lastScrollTop = 0;
+    this.scrollDirectionDown = true;
+    this.handleScroll = this.handleScroll.bind(this);
+    this.workDetails = [{
       number: '',
       projectName: '',
       projectDesc: '',
@@ -35600,76 +35513,71 @@ var Work = /*#__PURE__*/function (_Component) {
       projectType: '',
       roles: ['']
     }];
-    return _this;
   }
 
-  _createClass(Work, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      vh: Math.round(window.document.documentElement.clientHeight * this.pageSplitTimes)
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    const {
+      body,
+      documentElement
+    } = event.srcElement;
+    const {
+      vh,
+      slideNumber
+    } = this.state;
+    const scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+
+    if (scrollDistance > this.lastScrollTop) {
+      this.scrollDirectionDown = true;
+    } else {
+      this.scrollDirectionDown = false;
+    }
+
+    this.lastScrollTop = scrollDistance; // console.log(scrollDistance);
+
+    if (Math.floor(scrollDistance / vh) !== slideNumber && slideNumber < this.workDetails.length - 1) {
       this.setState({
-        vh: Math.round(window.document.documentElement.clientHeight * this.pageSplitTimes)
+        slideNumber: Math.floor(scrollDistance / vh)
+      });
+    } else if (slideNumber === this.workDetails.length - 1 && Math.floor(scrollDistance / vh) < slideNumber) {
+      this.setState({
+        slideNumber: Math.floor(scrollDistance / vh)
       });
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll(event) {
-      var _event$srcElement = event.srcElement,
-          body = _event$srcElement.body,
-          documentElement = _event$srcElement.documentElement;
-      var _this$state = this.state,
-          vh = _this$state.vh,
-          slideNumber = _this$state.slideNumber;
-      var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+  }
 
-      if (scrollDistance > this.lastScrollTop) {
-        this.scrollDirectionDown = true;
-      } else {
-        this.scrollDirectionDown = false;
-      }
+  changeTextContentBasedOnScroll() {
+    const {
+      slideNumber
+    } = this.state;
+    const refresh = true;
+    return /*#__PURE__*/_react.default.createElement(_TextContent.default, {
+      number: this.workDetails[slideNumber].number,
+      projectName: this.workDetails[slideNumber].projectName,
+      projectDesc: this.workDetails[slideNumber].projectDesc,
+      projectType: this.workDetails[slideNumber].projectType,
+      roles: this.workDetails[slideNumber].roles,
+      refreshToggle: refresh
+    });
+  }
 
-      this.lastScrollTop = scrollDistance; // console.log(scrollDistance);
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, this.changeTextContentBasedOnScroll(), /*#__PURE__*/_react.default.createElement(_ImageContent.default, {
+      pageSplitTimes: this.pageSplitTimes
+    }));
+  }
 
-      if (Math.floor(scrollDistance / vh) !== slideNumber && slideNumber < this.workDetails.length - 1) {
-        this.setState({
-          slideNumber: Math.floor(scrollDistance / vh)
-        });
-      } else if (slideNumber === this.workDetails.length - 1 && Math.floor(scrollDistance / vh) < slideNumber) {
-        this.setState({
-          slideNumber: Math.floor(scrollDistance / vh)
-        });
-      }
-    }
-  }, {
-    key: "changeTextContentBasedOnScroll",
-    value: function changeTextContentBasedOnScroll() {
-      var slideNumber = this.state.slideNumber;
-      var refresh = true;
-      return /*#__PURE__*/_react.default.createElement(_TextContent.default, {
-        number: this.workDetails[slideNumber].number,
-        projectName: this.workDetails[slideNumber].projectName,
-        projectDesc: this.workDetails[slideNumber].projectDesc,
-        projectType: this.workDetails[slideNumber].projectType,
-        roles: this.workDetails[slideNumber].roles,
-        refreshToggle: refresh
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, this.changeTextContentBasedOnScroll(), /*#__PURE__*/_react.default.createElement(_ImageContent.default, {
-        pageSplitTimes: this.pageSplitTimes
-      }));
-    }
-  }]);
-
-  return Work;
-}(_react.Component);
+}
 
 var _default = Work;
 exports.default = _default;
@@ -35687,117 +35595,121 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _breakpoints = _interopRequireDefault(require("../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 170vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
-
-var SkillsTitle = _styledComponents.default.div.attrs({
-  style: function style(_ref) {
-    var scrollPercent = _ref.scrollPercent;
+const Container = _styledComponents.default.div`
+    height: 170vh;/* Since pageSplitTime is 1.4 */
+    width:100%;
+    /* border: 1px solid blue; */
+    position: relative;
+    overflow: hidden;
+`;
+const SkillsTitle = _styledComponents.default.div.attrs({
+  style: _ref => {
+    let {
+      scrollPercent
+    } = _ref;
     return {
-      transform: "translateX(-".concat(scrollPercent * 10, "%)")
+      transform: `translateX(-${scrollPercent * 10}%)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  transition: transform 0.5s ease-out;\n  font-family: 'AvenirHeavy';\n  position: absolute;\n  color: #EEE;\n  top:40%;\n  right:-50%;\n  @media ", " {\n    font-size: 180px;\n  }\n  @media ", " {\n    font-size: 200px;\n  }\n  @media ", " {\n    font-size: 350px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
+})`
+  transition: transform 0.5s ease-out;
+  font-family: 'AvenirHeavy';
+  position: absolute;
+  color: #EEE;
+  top:40%;
+  right:-50%;
+  @media ${_breakpoints.default.laptop} {
+    font-size: 180px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 200px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 350px;
+  }
+`;
+const SkillsList = _styledComponents.default.div`
+  /* border: 1px solid #EFEFEF; */
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'AvenirRoman';
+  text-align: left;
+  margin-left: 15%;
+  margin-right: 10%;
+  z-index: 1;
+  transform: translateY(30%);
+  @media ${_breakpoints.default.laptop} {
+    font-size: 35px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 40px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 70px;
+  }
+`;
 
-var SkillsList = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  /* border: 1px solid #EFEFEF; */\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: space-between;\n  align-items: center;\n  font-family: 'AvenirRoman';\n  text-align: left;\n  margin-left: 15%;\n  margin-right: 10%;\n  z-index: 1;\n  transform: translateY(30%);\n  @media ", " {\n    font-size: 35px;\n  }\n  @media ", " {\n    font-size: 40px;\n  }\n  @media ", " {\n    font-size: 70px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var Skills = /*#__PURE__*/function (_Component) {
-  _inherits(Skills, _Component);
-
-  var _super = _createSuper(Skills);
-
-  function Skills(props) {
-    var _this;
-
-    _classCallCheck(this, Skills);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class Skills extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       screenHeight: 0,
       scrollHeight: 0,
       scrollPercent: 0
     };
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  _createClass(Skills, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
-      this.setState({
-        scrollHeight: Math.round(window.document.documentElement.scrollHeight)
-      });
-      this.setState({
-        screenHeight: Math.round(window.document.documentElement.clientHeight)
-      });
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll(event) {
-      var _event$srcElement = event.srcElement,
-          body = _event$srcElement.body,
-          documentElement = _event$srcElement.documentElement;
-      var sd = Math.max(body.scrollTop, documentElement.scrollTop);
-      var sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
-      var minlimit = documentElement.clientHeight * 950 / documentElement.scrollHeight;
-      var maxlimit = documentElement.clientHeight * 1180 / documentElement.scrollHeight;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      scrollHeight: Math.round(window.document.documentElement.scrollHeight)
+    });
+    this.setState({
+      screenHeight: Math.round(window.document.documentElement.clientHeight)
+    });
+  }
 
-      if (sp >= minlimit && sp <= maxlimit + 3) {
-        sp -= minlimit;
-        this.setState({
-          scrollPercent: sp
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.state.scrollPercent;
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(SkillsTitle, {
-        scrollPercent: scrollPercent
-      }, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Express.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Material.UI", /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
-    }
-  }]);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return Skills;
-}(_react.Component);
+  handleScroll(event) {
+    const {
+      body,
+      documentElement
+    } = event.srcElement;
+    const sd = Math.max(body.scrollTop, documentElement.scrollTop);
+    let sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
+    const minlimit = documentElement.clientHeight * 950 / documentElement.scrollHeight;
+    const maxlimit = documentElement.clientHeight * 1180 / documentElement.scrollHeight;
+
+    if (sp >= minlimit && sp <= maxlimit + 3) {
+      sp -= minlimit;
+      this.setState({
+        scrollPercent: sp
+      });
+    }
+  }
+
+  render() {
+    const {
+      scrollPercent
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(SkillsTitle, {
+      scrollPercent: scrollPercent
+    }, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Express.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Material.UI", /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
+  }
+
+}
 
 var _default = Skills;
 exports.default = _default;
@@ -35823,85 +35735,62 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const LogoImage = _styledComponents.default.img`
+/* border: 1px solid black; */
+@media ${_breakpoints.default.laptop} {
+    height: 85px;
+    width: 85px;
+  }
+@media ${_breakpoints.default.laptopL} {
+    height: 90px;
+    width: 90px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    height: 180px;
+    width: 180px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var LogoImage = _styledComponents.default.img(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 1px solid black; */\n@media ", " {\n    height: 85px;\n    width: 85px;\n  }\n@media ", " {\n    height: 90px;\n    width: 90px;\n  }\n  @media ", " {\n    height: 180px;\n    width: 180px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var SocialLogo = /*#__PURE__*/function (_React$Component) {
-  _inherits(SocialLogo, _React$Component);
-
-  var _super = _createSuper(SocialLogo);
-
-  function SocialLogo(props) {
-    var _this;
-
-    _classCallCheck(this, SocialLogo);
-
-    _this = _super.call(this, props);
-    _this.notifySlack = _this.notifySlack.bind(_assertThisInitialized(_this));
-    return _this;
+class SocialLogo extends _react.default.Component {
+  constructor(props) {
+    super(props);
+    this.notifySlack = this.notifySlack.bind(this);
   }
 
-  _createClass(SocialLogo, [{
-    key: "notifySlack",
-    value: function notifySlack() {
-      var alternate = this.props.alternate;
-      console.log(alternate);
-      fetch(undefined, {
-        credentials: 'omit',
-        method: 'POST',
-        body: JSON.stringify({
-          text: "\uD83D\uDE80 ".concat(alternate)
-        })
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          imgURL = _this$props.imgURL,
-          alternate = _this$props.alternate,
-          redirectURL = _this$props.redirectURL;
-      return /*#__PURE__*/_react.default.createElement("a", {
-        href: redirectURL,
-        onClick: this.notifySlack,
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }, /*#__PURE__*/_react.default.createElement(LogoImage, {
-        src: imgURL,
-        alt: alternate
-      }));
-    }
-  }]);
+  notifySlack() {
+    const {
+      alternate
+    } = this.props;
+    console.log(alternate);
+    fetch(undefined, {
+      credentials: 'omit',
+      method: 'POST',
+      body: JSON.stringify({
+        text: `🚀 ${alternate}`
+      })
+    });
+  }
 
-  return SocialLogo;
-}(_react.default.Component);
+  render() {
+    const {
+      imgURL,
+      alternate,
+      redirectURL
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement("a", {
+      href: redirectURL,
+      onClick: this.notifySlack,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, /*#__PURE__*/_react.default.createElement(LogoImage, {
+      src: imgURL,
+      alt: alternate
+    }));
+  }
+
+}
 
 SocialLogo.propTypes = {
   imgURL: _propTypes.default.string.isRequired,
@@ -35932,128 +35821,121 @@ var _SocialLogo = _interopRequireDefault(require("./SocialLogo"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height:80vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    position: relative;\n    overflow: hidden;\n"])));
-
-var ContactTitle = _styledComponents.default.div.attrs({
-  style: function style(_ref) {
-    var scrollPercent = _ref.scrollPercent;
+const Container = _styledComponents.default.section`
+    height:80vh;/* Since pageSplitTime is 1.4 */
+    width:100%;
+    /* border: 1px solid blue; */
+    position: relative;
+    overflow: hidden;
+`;
+const ContactTitle = _styledComponents.default.div.attrs({
+  style: _ref => {
+    let {
+      scrollPercent
+    } = _ref;
     return {
-      transform: "translateX(".concat(scrollPercent * 8, "%)")
+      transform: `translateX(${scrollPercent * 8}%)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  transition: transform 0.5s ease-out;\n  font-family: 'AvenirHeavy';\n  font-size: 200px;\n  position: absolute;\n  color: #EEE;\n  top:12%;\n  left:-70%;\n  @media ", " {\n    font-size: 180px;\n  }\n  @media ", " {\n    font-size: 200px;\n  }\n  @media ", " {\n    font-size: 350px;\n  }\n"])), _breakpoints.default.laptop, _breakpoints.default.laptopL, _breakpoints.default.desktop);
+})`
+  transition: transform 0.5s ease-out;
+  font-family: 'AvenirHeavy';
+  font-size: 200px;
+  position: absolute;
+  color: #EEE;
+  top:12%;
+  left:-70%;
+  @media ${_breakpoints.default.laptop} {
+    font-size: 180px;
+  }
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 200px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 350px;
+  }
+`;
+const SocialMediaIcons = _styledComponents.default.div`
+  /* border: 1px solid black; */
+  margin-left: 20%;
+  margin-right: 3%;
+  z-index: 1;
+  transform: translateY(210%);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+`;
 
-var SocialMediaIcons = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  /* border: 1px solid black; */\n  margin-left: 20%;\n  margin-right: 3%;\n  z-index: 1;\n  transform: translateY(210%);\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-around;\n"])));
-
-var Contact = /*#__PURE__*/function (_Component) {
-  _inherits(Contact, _Component);
-
-  var _super = _createSuper(Contact);
-
-  function Contact(props) {
-    var _this;
-
-    _classCallCheck(this, Contact);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class Contact extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       screenHeight: 0,
       scrollHeight: 0,
       scrollPercent: 0
     };
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  _createClass(Contact, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
-      this.setState({
-        scrollHeight: Math.round(window.document.documentElement.scrollHeight)
-      });
-      this.setState({
-        screenHeight: Math.round(window.document.documentElement.clientHeight)
-      });
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll(event) {
-      var _event$srcElement = event.srcElement,
-          body = _event$srcElement.body,
-          documentElement = _event$srcElement.documentElement;
-      var sd = Math.max(body.scrollTop, documentElement.scrollTop);
-      var sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
-      var minlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      scrollHeight: Math.round(window.document.documentElement.scrollHeight)
+    });
+    this.setState({
+      screenHeight: Math.round(window.document.documentElement.clientHeight)
+    });
+  }
 
-      if (sp >= minlimit && sp <= 100) {
-        sp -= minlimit;
-        this.setState({
-          scrollPercent: sp
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.state.scrollPercent;
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, {
-        scrollPercent: scrollPercent
-      }, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _git.default,
-        alternate: "Github",
-        redirectURL: "https://github.com/01000001kuma"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _mail.default,
-        alternate: "Mail",
-        redirectURL: "mailto:a_illera@yahoo.com"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _linkedin.default,
-        alternate: "Linkedin",
-        redirectURL: "https://www.linkedin.com/in/adrian-molina/"
-      })));
-    }
-  }]);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return Contact;
-}(_react.Component);
+  handleScroll(event) {
+    const {
+      body,
+      documentElement
+    } = event.srcElement;
+    const sd = Math.max(body.scrollTop, documentElement.scrollTop);
+    let sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
+    const minlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+
+    if (sp >= minlimit && sp <= 100) {
+      sp -= minlimit;
+      this.setState({
+        scrollPercent: sp
+      });
+    }
+  }
+
+  render() {
+    const {
+      scrollPercent
+    } = this.state;
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, {
+      scrollPercent: scrollPercent
+    }, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _git.default,
+      alternate: "Github",
+      redirectURL: "https://github.com/01000001kuma"
+    }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _mail.default,
+      alternate: "Mail",
+      redirectURL: "mailto:a_illera@yahoo.com"
+    }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _linkedin.default,
+      alternate: "Linkedin",
+      redirectURL: "https://www.linkedin.com/in/adrian-molina/"
+    })));
+  }
+
+}
 
 var _default = Contact;
 exports.default = _default;
@@ -36071,64 +35953,69 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.section`
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+    width:100%;
+    background-color: white;
+    /* border: 1px solid blue; */
+`;
+const Name = _styledComponents.default.div`
+  font-family: 'Valencia';
+  text-align:center;
+  padding-right: 10px;
+  @media ${_breakpoints.default.mobileS} {
+    font-size: 70px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    font-size: 80px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    font-size: 90px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    font-size: 150px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 160px;
+  }
+`;
+const Title = _styledComponents.default.div`
+  font-family: 'AvenirRoman';
+  text-align:center;
+  margin-top: 10px;
+  @media ${_breakpoints.default.mobileS} {
+    font-size: 13px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    font-size: 15px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    font-size: 17px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 35px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: column nowrap;\n    justify-content: center;\n    align-items: center;\n    height:50vh;\n    width:100%;\n    background-color: white;\n    /* border: 1px solid blue; */\n"])));
-
-var Name = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'Valencia';\n  text-align:center;\n  padding-right: 10px;\n  @media ", " {\n    font-size: 70px;\n  }\n  @media ", " {\n    font-size: 80px;\n  }\n  @media ", " {\n    font-size: 90px;\n  }\n  @media ", " {\n    font-size: 150px;\n  }\n  @media ", " {\n    font-size: 160px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var Title = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  font-family: 'AvenirRoman';\n  text-align:center;\n  margin-top: 10px;\n  @media ", " {\n    font-size: 13px;\n  }\n  @media ", " {\n    font-size: 15px;\n  }\n  @media ", " {\n    font-size: 17px;\n  }\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 35px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var NameAndJobTitle = /*#__PURE__*/function (_Component) {
-  _inherits(NameAndJobTitle, _Component);
-
-  var _super = _createSuper(NameAndJobTitle);
-
-  function NameAndJobTitle() {
-    _classCallCheck(this, NameAndJobTitle);
-
-    return _super.apply(this, arguments);
+class NameAndJobTitle extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Adrian Molina"), /*#__PURE__*/_react.default.createElement(Title, null, "Full Stack Developer"));
   }
 
-  _createClass(NameAndJobTitle, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(Name, null, "Adrian Molina"), /*#__PURE__*/_react.default.createElement(Title, null, "Full Stack Developer"));
-    }
-  }]);
-
-  return NameAndJobTitle;
-}(_react.Component);
+}
 
 var _default = NameAndJobTitle;
 exports.default = _default;
@@ -36146,62 +36033,53 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.section`
+    height: 50vh;/* Since pageSplitTime is 1.4 */
+    width:100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+`;
+const AboutMeDescription = _styledComponents.default.span`
+  font-family: 'AvenirRoman';
+  font-size: 24px;
+  text-align: center;
+  @media ${_breakpoints.default.mobileS} {
+    padding: 30px;
+    font-size: 20px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    padding: 30px;
+    font-size: 23px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    padding: 30px;
+    font-size: 24px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    padding: 80px;
+    font-size: 40px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    padding: 90px;
+    font-size: 45px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 50vh;/* Since pageSplitTime is 1.4 */\n    width:100%;\n    /* border: 1px solid blue; */\n    display: flex;\n    flex-flow: row nowrap;\n    justify-content: center;\n    align-items: center;\n"])));
-
-var AboutMeDescription = _styledComponents.default.span(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirRoman';\n  font-size: 24px;\n  text-align: center;\n  @media ", " {\n    padding: 30px;\n    font-size: 20px;\n  }\n  @media ", " {\n    padding: 30px;\n    font-size: 23px;\n  }\n  @media ", " {\n    padding: 30px;\n    font-size: 24px;\n  }\n  @media ", " {\n    padding: 80px;\n    font-size: 40px;\n  }\n  @media ", " {\n    padding: 90px;\n    font-size: 45px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var AboutMe = /*#__PURE__*/function (_Component) {
-  _inherits(AboutMe, _Component);
-
-  var _super = _createSuper(AboutMe);
-
-  function AboutMe() {
-    _classCallCheck(this, AboutMe);
-
-    return _super.apply(this, arguments);
+class AboutMe extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
   }
 
-  _createClass(AboutMe, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(AboutMeDescription, null, "Full Stack Developer who cares deeply about user experience. Serious passion for solving real life problems and new technologies."));
-    }
-  }]);
-
-  return AboutMe;
-}(_react.Component);
+}
 
 var _default = AboutMe;
 exports.default = _default;
@@ -36225,48 +36103,12 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-var Hero = /*#__PURE__*/function (_Component) {
-  _inherits(Hero, _Component);
-
-  var _super = _createSuper(Hero);
-
-  function Hero() {
-    _classCallCheck(this, Hero);
-
-    return _super.apply(this, arguments);
+class Hero extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_NameAndJobTitle.default, null), /*#__PURE__*/_react.default.createElement(_AboutMe.default, null));
   }
 
-  _createClass(Hero, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_NameAndJobTitle.default, null), /*#__PURE__*/_react.default.createElement(_AboutMe.default, null));
-    }
-  }]);
-
-  return Hero;
-}(_react.Component);
+}
 
 var _default = Hero;
 exports.default = _default;
@@ -36488,150 +36330,215 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const TextContainer = _styledComponents.default.section`
+position: fixed;
+top:0;
+left:0;
+display: flex;
+flex-flow: column nowrap;
+/* border: 1px dashed black; */
+height:100vh;
+width: 100%;
+`;
+const ProjectName = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.mobileS} {
+    font-size: 40px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    font-size: 45px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    font-size: 50px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    font-size: 60px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 90px;
+  }
+  /* border: 1px dashed black; */
+`;
+const ProjectDesc = _styledComponents.default.div`
+  padding-top:2%;
+  font-family: 'AvenirBook';
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 50px;
+  }
+  /* border: 1px dashed black; */
+`;
+const MyRole = _styledComponents.default.div`
+  padding-top:5%;
+  font-family: 'AvenirMedium';
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 50px;
+  }
+  /* border: 1px dashed black; */
+`;
+const ProjectID = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 58px;
+  }
+  /* border: 1px dashed black; */
+  padding: 5%;
+`;
+const ProjectType = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  @media ${_breakpoints.default.laptopL} {
+    font-size: 30px;
+  }
+  @media ${_breakpoints.default.desktop} {
+    font-size: 58px;
+  }
+  /* border: 1px dashed black; */
+  padding: 5%;
+`;
+const ProjectDetails = _styledComponents.default.div`
+display: flex;
+flex-flow: column nowrap;
+/* border: 1px dashed black; */
+width: 100%;
+padding: 5%;
+`;
+const ProjectDetailsContainer = _styledComponents.default.div`
+display: flex;
+flex-flow: column nowrap;
+align-items: center;
+/* border: 2px solid black; */
+padding-top:5%;
+height: 100%;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+const appearText = () => (0, _styledComponents.keyframes)`
+0%{
+  color: #FFF;
+}
+100%{
+  color: #333;
+}
+`;
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+const revBlock = () => (0, _styledComponents.keyframes)`
+0%{
+    left: 0;
+    width: 0%
+}
+50%{
+    left:0%;
+    width:100%
+}
+100%{
+    left:100%;
+    width:0%
+}
+`;
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+let BlockTextReveal = _styledComponents.default.span`
+`;
+const BlockTextRevealQuick = _styledComponents.default.span`
+display:${props => props.inline ? 'inline' : 'block'};
+color: #FFF;
+animation: ${appearText} 0.0001s linear forwards;
+animation-delay: 0.5s;
+position: relative;
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+&::after{
+content:'';
+top:0;
+left:0;
+position:absolute;
+width:0%;
+height:100%;
+background: #222;
+animation: ${revBlock} 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+animation-delay:0s;
+}
+`;
+const BlockTextRevealNoAnim = _styledComponents.default.span`
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+`;
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var TextContainer = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nposition: fixed;\ntop:0;\nleft:0;\ndisplay: flex;\nflex-flow: column nowrap;\n/* border: 1px dashed black; */\nheight:100vh;\nwidth: 100%;\n"])));
-
-var ProjectName = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 40px;\n  }\n  @media ", " {\n    font-size: 45px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  @media ", " {\n    font-size: 60px;\n  }\n  @media ", " {\n    font-size: 90px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var ProjectDesc = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  padding-top:2%;\n  font-family: 'AvenirBook';\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var MyRole = _styledComponents.default.div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  padding-top:5%;\n  font-family: 'AvenirMedium';\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  /* border: 1px dashed black; */\n"])), _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectID = _styledComponents.default.div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 58px;\n  }\n  /* border: 1px dashed black; */\n  padding: 5%;\n"])), _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectType = _styledComponents.default.div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  @media ", " {\n    font-size: 30px;\n  }\n  @media ", " {\n    font-size: 58px;\n  }\n  /* border: 1px dashed black; */\n  padding: 5%;\n"])), _breakpoints.default.laptopL, _breakpoints.default.desktop);
-
-var ProjectDetails = _styledComponents.default.div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\ndisplay: flex;\nflex-flow: column nowrap;\n/* border: 1px dashed black; */\nwidth: 100%;\npadding: 5%;\n"])));
-
-var ProjectDetailsContainer = _styledComponents.default.div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\ndisplay: flex;\nflex-flow: column nowrap;\nalign-items: center;\n/* border: 2px solid black; */\npadding-top:5%;\nheight: 100%;\n"])));
-
-var appearText = function appearText() {
-  return (0, _styledComponents.keyframes)(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n0%{\n  color: #FFF;\n}\n100%{\n  color: #333;\n}\n"])));
-};
-
-var revBlock = function revBlock() {
-  return (0, _styledComponents.keyframes)(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n0%{\n    left: 0;\n    width: 0%\n}\n50%{\n    left:0%;\n    width:100%\n}\n100%{\n    left:100%;\n    width:0%\n}\n"])));
-};
-
-var BlockTextReveal = _styledComponents.default.span(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n"])));
-
-var BlockTextRevealQuick = _styledComponents.default.span(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\ndisplay:", ";\ncolor: #FFF;\nanimation: ", " 0.0001s linear forwards;\nanimation-delay: 0.5s;\nposition: relative;\n\n\n\n&::after{\ncontent:'';\ntop:0;\nleft:0;\nposition:absolute;\nwidth:0%;\nheight:100%;\nbackground: #222;\nanimation: ", " 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;\nanimation-delay:0s;\n}\n"])), function (props) {
-  return props.inline ? 'inline' : 'block';
-}, appearText, revBlock);
-
-var BlockTextRevealNoAnim = _styledComponents.default.span(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n\n"])));
-
-var TextContent = /*#__PURE__*/function (_Component) {
-  _inherits(TextContent, _Component);
-
-  var _super = _createSuper(TextContent);
-
-  function TextContent(props) {
-    var _this;
-
-    _classCallCheck(this, TextContent);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class TextContent extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       refreshBlock: false
     };
-    _this.refresh = _this.refresh.bind(_assertThisInitialized(_this));
-    return _this;
+    this.refresh = this.refresh.bind(this);
   }
 
-  _createClass(TextContent, [{
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      this.refresh(nextProps);
-    }
-  }, {
-    key: "refresh",
-    value: function refresh(nextProps) {
-      var _this2 = this;
+  componentWillReceiveProps(nextProps) {
+    this.refresh(nextProps);
+  }
 
-      var refreshToggle = nextProps.refreshToggle;
+  refresh(nextProps) {
+    const {
+      refreshToggle
+    } = nextProps;
 
-      if (refreshToggle) {
-        BlockTextReveal = BlockTextRevealNoAnim;
+    if (refreshToggle) {
+      BlockTextReveal = BlockTextRevealNoAnim;
+      this.setState({
+        refreshBlock: true
+      }, () => {
+        BlockTextReveal = BlockTextRevealQuick;
         this.setState({
-          refreshBlock: true
-        }, function () {
-          BlockTextReveal = BlockTextRevealQuick;
-
-          _this2.setState({
-            refreshBlock: false
-          });
+          refreshBlock: false
         });
-      }
+      });
     }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          number = _this$props.number,
-          projectName = _this$props.projectName,
-          projectDesc = _this$props.projectDesc,
-          roles = _this$props.roles,
-          projectType = _this$props.projectType,
-          refreshToggle = _this$props.refreshToggle;
-      return /*#__PURE__*/_react.default.createElement(TextContainer, null, /*#__PURE__*/_react.default.createElement(ProjectID, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, number)), /*#__PURE__*/_react.default.createElement(ProjectDetailsContainer, null, /*#__PURE__*/_react.default.createElement(ProjectDetails, null, /*#__PURE__*/_react.default.createElement(ProjectName, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, projectName)), /*#__PURE__*/_react.default.createElement(MyRole, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, roles.map(function (role, index, arr) {
-        return index === arr.length - 1 ? /*#__PURE__*/_react.default.createElement("span", {
-          key: role
-        }, role) : /*#__PURE__*/_react.default.createElement("span", {
-          key: role
-        }, role, "\xA0 \u2022 \xA0");
-      }))), /*#__PURE__*/_react.default.createElement(ProjectDesc, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: false
-      }, projectDesc)))), /*#__PURE__*/_react.default.createElement(ProjectType, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
-        refreshToggle: refreshToggle,
-        inline: true
-      }, projectType)));
-    }
-  }]);
+  }
 
-  return TextContent;
-}(_react.Component);
+  render() {
+    const {
+      number,
+      projectName,
+      projectDesc,
+      roles,
+      projectType,
+      refreshToggle
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement(TextContainer, null, /*#__PURE__*/_react.default.createElement(ProjectID, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, number)), /*#__PURE__*/_react.default.createElement(ProjectDetailsContainer, null, /*#__PURE__*/_react.default.createElement(ProjectDetails, null, /*#__PURE__*/_react.default.createElement(ProjectName, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, projectName)), /*#__PURE__*/_react.default.createElement(MyRole, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, roles.map((role, index, arr) => index === arr.length - 1 ? /*#__PURE__*/_react.default.createElement("span", {
+      key: role
+    }, role) : /*#__PURE__*/_react.default.createElement("span", {
+      key: role
+    }, role, "\xA0 \u2022 \xA0")))), /*#__PURE__*/_react.default.createElement(ProjectDesc, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: false
+    }, projectDesc)))), /*#__PURE__*/_react.default.createElement(ProjectType, null, /*#__PURE__*/_react.default.createElement(BlockTextReveal, {
+      refreshToggle: refreshToggle,
+      inline: true
+    }, projectType)));
+  }
+
+}
 
 TextContent.propTypes = {
   number: _propTypes.default.string.isRequired,
@@ -36665,121 +36572,124 @@ var _People = _interopRequireDefault(require("../../../../Assets/Images/Voistrap
 
 var _Score = _interopRequireDefault(require("../../../../Assets/Images/Voistrap/Score.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var VoistrapPhoneHome = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const VoistrapPhoneHome = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 15}%) scale(0.7)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -170vh;\ntransform-origin: left center;\nleft:2vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var VoistrapPhoneMeetings = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -170vh;
+transform-origin: left center;
+left:2vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const VoistrapPhoneMeetings = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8.5, "%) scale(0.62)")
+      transform: `translate(0px,-${scroll * 8.5}%) scale(0.62)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-125vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var VoistrapPhoneScore = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-125vh;
+right: 2vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const VoistrapPhoneScore = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 3.5, "%) scale(0.5)")
+      transform: `translate(0px,-${scroll * 3.5}%) scale(0.5)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-110vh;\nleft:10vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var VoistrapPhonePeople = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-110vh;
+left:10vw;
+transform-origin: left center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const VoistrapPhonePeople = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.45)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.45)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-105vh;\nright: 10vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-105vh;
+right: 10vw;
+transform-origin: right center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var VoistrapImages = /*#__PURE__*/function (_Component) {
-  _inherits(VoistrapImages, _Component);
-
-  var _super = _createSuper(VoistrapImages);
-
-  function VoistrapImages() {
-    _classCallCheck(this, VoistrapImages);
-
-    return _super.apply(this, arguments);
+class VoistrapImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+    console.log('scrollPercent ', scrollPercent);
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(VoistrapPhonePeople, {
+      src: _People.default,
+      scroll: scrollPercent,
+      alt: "voistrapPeople"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneScore, {
+      src: _Score.default,
+      scroll: scrollPercent,
+      alt: "voistrapScore"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneMeetings, {
+      src: _Meetings.default,
+      scroll: scrollPercent,
+      alt: "voistrapMeetings"
+    }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneHome, {
+      src: _Home.default,
+      scroll: scrollPercent,
+      alt: "voistrapHome"
+    }));
   }
 
-  _createClass(VoistrapImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
-      console.log('scrollPercent ', scrollPercent);
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(VoistrapPhonePeople, {
-        src: _People.default,
-        scroll: scrollPercent,
-        alt: "voistrapPeople"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneScore, {
-        src: _Score.default,
-        scroll: scrollPercent,
-        alt: "voistrapScore"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneMeetings, {
-        src: _Meetings.default,
-        scroll: scrollPercent,
-        alt: "voistrapMeetings"
-      }), /*#__PURE__*/_react.default.createElement(VoistrapPhoneHome, {
-        src: _Home.default,
-        scroll: scrollPercent,
-        alt: "voistrapHome"
-      }));
-    }
-  }]);
-
-  return VoistrapImages;
-}(_react.Component);
+}
 
 VoistrapImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -36812,126 +36722,129 @@ var _AddRestaurant = _interopRequireDefault(require("../../../../Assets/Images/W
 
 var _AddFood = _interopRequireDefault(require("../../../../Assets/Images/WhatsMyFood/AddFood.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Restaurant = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Restaurant = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 15}%) scale(0.7)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -170vh;\ntransform-origin: left center;\nleft:2vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var Home = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -170vh;
+transform-origin: left center;
+left:2vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const Home = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8.5, "%) scale(0.62)")
+      transform: `translate(0px,-${scroll * 8.5}%) scale(0.62)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-125vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var AddFood = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-125vh;
+right: 2vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const AddFood = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 3.5, "%) scale(0.5)")
+      transform: `translate(0px,-${scroll * 3.5}%) scale(0.5)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-110vh;\nleft:10vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var AddRestaurant = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-110vh;
+left:10vw;
+transform-origin: left center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const AddRestaurant = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.45)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.45)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-105vh;\nright: 10vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-105vh;
+right: 10vw;
+transform-origin: right center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var WhatsMyFoodImages = /*#__PURE__*/function (_Component) {
-  _inherits(WhatsMyFoodImages, _Component);
+class WhatsMyFoodImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1; // console.log('WMF scrollOffsetPercent ', scrollOffsetInPercent);
 
-  var _super = _createSuper(WhatsMyFoodImages);
+    scrollPercent -= scrollOffsetInPercent;
 
-  function WhatsMyFoodImages() {
-    _classCallCheck(this, WhatsMyFoodImages);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(WhatsMyFoodImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1; // console.log('WMF scrollOffsetPercent ', scrollOffsetInPercent);
-
-      scrollPercent -= scrollOffsetInPercent;
-
-      if (scrollPercent > 0 && scrollPercent < 0.1) {
-        console.log('WMF');
-      }
-
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(AddFood, {
-        src: _AddFood.default,
-        scroll: scrollPercent,
-        alt: "addFood"
-      }), /*#__PURE__*/_react.default.createElement(AddRestaurant, {
-        src: _AddRestaurant.default,
-        scroll: scrollPercent,
-        alt: "addRestaurant"
-      }), /*#__PURE__*/_react.default.createElement(Home, {
-        src: _Home.default,
-        scroll: scrollPercent,
-        alt: "Home"
-      }), /*#__PURE__*/_react.default.createElement(Restaurant, {
-        src: _Restaurant.default,
-        scroll: scrollPercent,
-        alt: "Restaurant"
-      }));
+    if (scrollPercent > 0 && scrollPercent < 0.1) {
+      console.log('WMF');
     }
-  }]);
 
-  return WhatsMyFoodImages;
-}(_react.Component);
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(AddFood, {
+      src: _AddFood.default,
+      scroll: scrollPercent,
+      alt: "addFood"
+    }), /*#__PURE__*/_react.default.createElement(AddRestaurant, {
+      src: _AddRestaurant.default,
+      scroll: scrollPercent,
+      alt: "addRestaurant"
+    }), /*#__PURE__*/_react.default.createElement(Home, {
+      src: _Home.default,
+      scroll: scrollPercent,
+      alt: "Home"
+    }), /*#__PURE__*/_react.default.createElement(Restaurant, {
+      src: _Restaurant.default,
+      scroll: scrollPercent,
+      alt: "Restaurant"
+    }));
+  }
+
+}
 
 WhatsMyFoodImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -36960,94 +36873,76 @@ var _Tablet = _interopRequireDefault(require("../../../../Assets/Images/ComingOr
 
 var _Iphone = _interopRequireDefault(require("../../../../Assets/Images/ComingOrNot/Iphone.png"));
 
-var _templateObject, _templateObject2;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Iphone = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Iphone = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 22, "%) scale(0.65)")
+      transform: `translate(0px,-${scroll * 22}%) scale(0.65)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -320vh;\ntransform-origin: left center;\nleft:2vw;\n/* border: 1px dashed red; */\nheight: 100vh; \n"])));
-
-var Tablet = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -320vh;
+transform-origin: left center;
+left:2vw;
+/* border: 1px dashed red; */
+height: 100vh; 
+`;
+const Tablet = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 6, "%) scale(0.65)")
+      transform: `translate(0px,-${scroll * 6}%) scale(0.65)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -180vh;\ntransform-origin: right center;\nright:2vw;\n/* border: 1px dashed red; */\nheight: 100vh; \n"])));
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -180vh;
+transform-origin: right center;
+right:2vw;
+/* border: 1px dashed red; */
+height: 100vh; 
+`;
 
-var ComingOrNotImages = /*#__PURE__*/function (_Component) {
-  _inherits(ComingOrNotImages, _Component);
-
-  var _super = _createSuper(ComingOrNotImages);
-
-  function ComingOrNotImages() {
-    _classCallCheck(this, ComingOrNotImages);
-
-    return _super.apply(this, arguments);
+class ComingOrNotImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Tablet, {
+      src: _Tablet.default,
+      scroll: scrollPercent,
+      alt: "cmgOrNotTablet"
+    }), /*#__PURE__*/_react.default.createElement(Iphone, {
+      src: _Iphone.default,
+      scroll: scrollPercent,
+      alt: "cmgOrNotIphone"
+    }));
   }
 
-  _createClass(ComingOrNotImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Tablet, {
-        src: _Tablet.default,
-        scroll: scrollPercent,
-        alt: "cmgOrNotTablet"
-      }), /*#__PURE__*/_react.default.createElement(Iphone, {
-        src: _Iphone.default,
-        scroll: scrollPercent,
-        alt: "cmgOrNotIphone"
-      }));
-    }
-  }]);
-
-  return ComingOrNotImages;
-}(_react.Component);
+}
 
 ComingOrNotImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -37080,120 +36975,123 @@ var _Lock = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Lock
 
 var _Battery = _interopRequireDefault(require("../../../../Assets/Images/Tesla/Battery.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Heat = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Heat = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 15, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 15}%) scale(0.7)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -170vh;\ntransform-origin: left center;\nleft:2vw;\n/* border: 1px dashed red; */\nheight: 80vh; \n"])));
-
-var Tyre = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -170vh;
+transform-origin: left center;
+left:2vw;
+/* border: 1px dashed red; */
+height: 80vh; 
+`;
+const Tyre = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 8.5, "%) scale(0.62)")
+      transform: `translate(0px,-${scroll * 8.5}%) scale(0.62)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-125vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.6px);\n"])));
-
-var Battery = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-125vh;
+right: 2vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.6px);
+`;
+const Battery = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 3.5, "%) scale(0.5)")
+      transform: `translate(0px,-${scroll * 3.5}%) scale(0.5)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-110vh;\nleft:10vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(0.8px);\n"])));
-
-var Lock = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+transition: transform 0.2s ease-out;
+bottom:-110vh;
+left:10vw;
+transform-origin: left center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(0.8px);
+`;
+const Lock = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 2, "%) scale(0.45)")
+      transform: `translate(0px,-${scroll * 2}%) scale(0.45)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-105vh;\nright: 10vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 80vh;\nfilter: blur(1.2px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-105vh;
+right: 10vw;
+transform-origin: right center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 80vh;
+filter: blur(1.2px);
+`;
 
-var TeslaImages = /*#__PURE__*/function (_Component) {
-  _inherits(TeslaImages, _Component);
-
-  var _super = _createSuper(TeslaImages);
-
-  function TeslaImages() {
-    _classCallCheck(this, TeslaImages);
-
-    return _super.apply(this, arguments);
+class TeslaImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
+      src: _Lock.default,
+      scroll: scrollPercent,
+      alt: "teslaLock"
+    }), /*#__PURE__*/_react.default.createElement(Battery, {
+      src: _Battery.default,
+      scroll: scrollPercent,
+      alt: "teslaBattery"
+    }), /*#__PURE__*/_react.default.createElement(Tyre, {
+      src: _Tyre.default,
+      scroll: scrollPercent,
+      alt: "teslaTyre"
+    }), /*#__PURE__*/_react.default.createElement(Heat, {
+      src: _Heat.default,
+      scroll: scrollPercent,
+      alt: "teslaHeat"
+    }));
   }
 
-  _createClass(TeslaImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight + index - 1;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Lock, {
-        src: _Lock.default,
-        scroll: scrollPercent,
-        alt: "teslaLock"
-      }), /*#__PURE__*/_react.default.createElement(Battery, {
-        src: _Battery.default,
-        scroll: scrollPercent,
-        alt: "teslaBattery"
-      }), /*#__PURE__*/_react.default.createElement(Tyre, {
-        src: _Tyre.default,
-        scroll: scrollPercent,
-        alt: "teslaTyre"
-      }), /*#__PURE__*/_react.default.createElement(Heat, {
-        src: _Heat.default,
-        scroll: scrollPercent,
-        alt: "teslaHeat"
-      }));
-    }
-  }]);
-
-  return TeslaImages;
-}(_react.Component);
+}
 
 TeslaImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -37224,114 +37122,108 @@ var _JpnHome = _interopRequireDefault(require("../../../../Assets/Images/Kosen/J
 
 var _Player = _interopRequireDefault(require("../../../../Assets/Images/Kosen/Player.png"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var JapaneseTab = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const JapaneseTab = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 13, "%) scale(0.8)")
+      transform: `translate(0px,-${scroll * 13}%) scale(0.8)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom:-220vh;\nleft: 2vw;\ntransform-origin: left center;\n/* border: 1px dashed red; */\nheight: 70vh;\n\n"])));
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom:-220vh;
+left: 2vw;
+transform-origin: left center;
+/* border: 1px dashed red; */
+height: 70vh;
 
-var EnglishTab = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+`;
+const EnglishTab = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 9, "%) scale(0.6)")
+      transform: `translate(0px,-${scroll * 9}%) scale(0.6)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -210vh;\nright: 3vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nfilter: blur(0.6px);\nheight: 70vh; \n"])));
-
-var PlayerTab = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -210vh;
+right: 3vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+filter: blur(0.6px);
+height: 70vh; 
+`;
+const PlayerTab = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 3, "%) scale(0.5)")
+      transform: `translate(0px,-${scroll * 3}%) scale(0.5)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nbottom:-135vh;\nleft: 3vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nheight: 70vh;\nfilter: blur(1px);\n"])));
+})`
+transition: transform 0.2s ease-out;
+bottom:-135vh;
+left: 3vw;
+transform-origin: left center;
+position: absolute;
+/* border: 1px dashed red; */
+height: 70vh;
+filter: blur(1px);
+`;
 
-var KosenImages = /*#__PURE__*/function (_Component) {
-  _inherits(KosenImages, _Component);
+class KosenImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight; // console.log('Voistrap scrollOffsetPercent ', scrollOffsetInPercent);
 
-  var _super = _createSuper(KosenImages);
+    console.log('scrollPercent ', scrollPercent);
+    scrollPercent -= scrollOffsetInPercent;
 
-  function KosenImages() {
-    _classCallCheck(this, KosenImages);
-
-    return _super.apply(this, arguments);
-  }
-
-  _createClass(KosenImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight; // console.log('Voistrap scrollOffsetPercent ', scrollOffsetInPercent);
-
-      console.log('scrollPercent ', scrollPercent);
-      scrollPercent -= scrollOffsetInPercent;
-
-      if (scrollPercent > 0 && scrollPercent < 0.1) {
-        console.log('Voistrap');
-      }
-
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
-        src: _Player.default,
-        scroll: scrollPercent,
-        alt: "kosenPlayer"
-      }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
-        src: _EnglishHome.default,
-        scroll: scrollPercent,
-        alt: "kosenEnglish"
-      }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
-        src: _JpnHome.default,
-        scroll: scrollPercent,
-        alt: "kosenJapanese"
-      }));
+    if (scrollPercent > 0 && scrollPercent < 0.1) {
+      console.log('Voistrap');
     }
-  }]);
 
-  return KosenImages;
-}(_react.Component);
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(PlayerTab, {
+      src: _Player.default,
+      scroll: scrollPercent,
+      alt: "kosenPlayer"
+    }), /*#__PURE__*/_react.default.createElement(EnglishTab, {
+      src: _EnglishHome.default,
+      scroll: scrollPercent,
+      alt: "kosenEnglish"
+    }), /*#__PURE__*/_react.default.createElement(JapaneseTab, {
+      src: _JpnHome.default,
+      scroll: scrollPercent,
+      alt: "kosenJapanese"
+    }));
+  }
+
+}
 
 KosenImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -37364,120 +37256,120 @@ var _Paths = _interopRequireDefault(require("../../../../Assets/Images/Showcase/
 
 var _BigBubble = _interopRequireDefault(require("../../../../Assets/Images/Showcase/BigBubble.png"));
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Dots = _styledComponents.default.img.attrs({
-  style: function style(_ref) {
-    var scroll = _ref.scroll;
+const Dots = _styledComponents.default.img.attrs({
+  style: _ref => {
+    let {
+      scroll
+    } = _ref;
     return {
-      transform: "translate(0px,-".concat(scroll * 36, "%) scale(0.99)")
+      transform: `translate(0px,-${scroll * 36}%) scale(0.99)`
     };
   }
-})(_templateObject || (_templateObject = _taggedTemplateLiteral(["\ntransition: transform 0.2s ease-out;\nposition: absolute;\nbottom: -250vh;\nleft:2vw;\ntransform-origin: left center;\n/* border: 1px dashed red; */\nwidth: 80vw; \n"])));
-
-var Bubbles = _styledComponents.default.img.attrs({
-  style: function style(_ref2) {
-    var scroll = _ref2.scroll;
+})`
+transition: transform 0.2s ease-out;
+position: absolute;
+bottom: -250vh;
+left:2vw;
+transform-origin: left center;
+/* border: 1px dashed red; */
+width: 80vw; 
+`;
+const Bubbles = _styledComponents.default.img.attrs({
+  style: _ref2 => {
+    let {
+      scroll
+    } = _ref2;
     return {
-      transform: "translate(0px,-".concat(scroll * 25, "%) scale(0.9)")
+      transform: `translate(0px,-${scroll * 25}%) scale(0.9)`
     };
   }
-})(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\nposition: absolute;\nbottom:-210vh;\nright: 2vw;\ntransform-origin: right center;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.2px);\n"])));
-
-var BigBubble = _styledComponents.default.img.attrs({
-  style: function style(_ref3) {
-    var scroll = _ref3.scroll;
+})`
+position: absolute;
+bottom:-210vh;
+right: 2vw;
+transform-origin: right center;
+/* border: 1px dashed red; */
+width: 80vw;
+filter: blur(0.2px);
+`;
+const BigBubble = _styledComponents.default.img.attrs({
+  style: _ref3 => {
+    let {
+      scroll
+    } = _ref3;
     return {
-      transform: "translate(0px,-".concat(scroll * 13, "%) scale(0.8)")
+      transform: `translate(0px,-${scroll * 13}%) scale(0.8)`
     };
   }
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\nbottom:-160vh;\nleft:2vw;\ntransform-origin: left center;\nposition: absolute;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.5px);\n"])));
-
-var Paths = _styledComponents.default.img.attrs({
-  style: function style(_ref4) {
-    var scroll = _ref4.scroll;
+})`
+bottom:-160vh;
+left:2vw;
+transform-origin: left center;
+position: absolute;
+/* border: 1px dashed red; */
+width: 80vw;
+filter: blur(0.5px);
+`;
+const Paths = _styledComponents.default.img.attrs({
+  style: _ref4 => {
+    let {
+      scroll
+    } = _ref4;
     return {
-      transform: "translate(0px,-".concat(scroll * 4, "%) scale(0.7)")
+      transform: `translate(0px,-${scroll * 4}%) scale(0.7)`
     };
   }
-})(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\nbottom:-120vh;\nright: 2vw;\ntransform-origin: right center;\nposition: absolute;\n/* border: 1px dashed red; */\nwidth: 80vw;\nfilter: blur(0.8px);\n"])));
+})`
+bottom:-120vh;
+right: 2vw;
+transform-origin: right center;
+position: absolute;
+/* border: 1px dashed red; */
+width: 80vw;
+filter: blur(0.8px);
+`;
 
-var VoistrapWebImages = /*#__PURE__*/function (_Component) {
-  _inherits(VoistrapWebImages, _Component);
-
-  var _super = _createSuper(VoistrapWebImages);
-
-  function VoistrapWebImages() {
-    _classCallCheck(this, VoistrapWebImages);
-
-    return _super.apply(this, arguments);
+class VoistrapWebImages extends _react.Component {
+  render() {
+    let {
+      scrollPercent
+    } = this.props;
+    const {
+      boxHeight,
+      index,
+      scrollHeight,
+      screenHeight
+    } = this.props;
+    const heighttoBeReducedinVH = boxHeight * index - 100;
+    const scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
+    const scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
+    scrollPercent -= scrollOffsetInPercent;
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
+      src: _Paths.default,
+      scroll: scrollPercent,
+      alt: "paths"
+    }), /*#__PURE__*/_react.default.createElement(BigBubble, {
+      src: _BigBubble.default,
+      scroll: scrollPercent,
+      alt: "bigBubble"
+    }), /*#__PURE__*/_react.default.createElement(Bubbles, {
+      src: _Bubble.default,
+      scroll: scrollPercent,
+      alt: "bubbles"
+    }), /*#__PURE__*/_react.default.createElement(Dots, {
+      src: _Dots.default,
+      scroll: scrollPercent,
+      alt: "dots"
+    }));
   }
 
-  _createClass(VoistrapWebImages, [{
-    key: "render",
-    value: function render() {
-      var scrollPercent = this.props.scrollPercent;
-      var _this$props = this.props,
-          boxHeight = _this$props.boxHeight,
-          index = _this$props.index,
-          scrollHeight = _this$props.scrollHeight,
-          screenHeight = _this$props.screenHeight;
-      var heighttoBeReducedinVH = boxHeight * index - 100;
-      var scrollOffset = screenHeight * heighttoBeReducedinVH / 100;
-      var scrollOffsetInPercent = scrollOffset * 100 / scrollHeight;
-      scrollPercent -= scrollOffsetInPercent;
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(Paths, {
-        src: _Paths.default,
-        scroll: scrollPercent,
-        alt: "paths"
-      }), /*#__PURE__*/_react.default.createElement(BigBubble, {
-        src: _BigBubble.default,
-        scroll: scrollPercent,
-        alt: "bigBubble"
-      }), /*#__PURE__*/_react.default.createElement(Bubbles, {
-        src: _Bubble.default,
-        scroll: scrollPercent,
-        alt: "bubbles"
-      }), /*#__PURE__*/_react.default.createElement(Dots, {
-        src: _Dots.default,
-        scroll: scrollPercent,
-        alt: "dots"
-      }));
-    }
-  }]);
-
-  return VoistrapWebImages;
-}(_react.Component);
+}
 
 VoistrapWebImages.propTypes = {
   boxHeight: _propTypes.default.number.isRequired,
@@ -37516,161 +37408,134 @@ var _KosenImages = _interopRequireDefault(require("./ParallaxImages/KosenImages"
 
 var _VoistrapWebImages = _interopRequireDefault(require("./ParallaxImages/VoistrapWebImages"));
 
-var _templateObject, _templateObject2;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const ImageContainer = _styledComponents.default.div`
+/* border: 0.1px dashed black; */
+width:100%;
+height:900vh;
+margin-bottom:30vh;
+display: flex;
+flex-flow: column nowrap;
+`;
+const ImageBox = _styledComponents.default.div`
+/* outline: 0.1px dashed green; */
+margin-top:30vh;
+height: 100vh;
+position: relative;
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var ImageContainer = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 0.1px dashed black; */\nwidth:100%;\nheight:900vh;\nmargin-bottom:30vh;\ndisplay: flex;\nflex-flow: column nowrap;\n"])));
-
-var ImageBox = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n/* outline: 0.1px dashed green; */\nmargin-top:30vh;\nheight: 100vh;\nposition: relative;\n"])));
-
-var ImageContent = /*#__PURE__*/function (_Component) {
-  _inherits(ImageContent, _Component);
-
-  var _super = _createSuper(ImageContent);
-
-  function ImageContent(props) {
-    var _this;
-
-    _classCallCheck(this, ImageContent);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class ImageContent extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       screenHeight: 0,
       scrollHeight: 0,
       scrollPercent: 0
     };
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    return _this;
+    this.handleScroll = this.handleScroll.bind(this);
   }
 
-  _createClass(ImageContent, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var vhDiff = (0, _vhCheck.default)().offset;
-      window.addEventListener('scroll', this.handleScroll);
-      this.setState({
-        scrollHeight: Math.round(window.document.documentElement.scrollHeight)
-      });
-      this.setState({
-        screenHeight: Math.round(window.document.documentElement.clientHeight + vhDiff)
-      });
-      console.log('scrollHeight', Math.round(window.document.documentElement.scrollHeight));
-      console.log('screenHeight', Math.round(window.document.documentElement.clientHeight));
-    }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll() {
-      var _window$document = window.document,
-          body = _window$document.body,
-          documentElement = _window$document.documentElement;
-      var sd = Math.max(body.scrollTop, documentElement.scrollTop);
-      var sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
-      var minlimit = documentElement.clientHeight * 100 / documentElement.scrollHeight;
-      var maxlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+  componentDidMount() {
+    const vhDiff = (0, _vhCheck.default)().offset;
+    window.addEventListener('scroll', this.handleScroll);
+    this.setState({
+      scrollHeight: Math.round(window.document.documentElement.scrollHeight)
+    });
+    this.setState({
+      screenHeight: Math.round(window.document.documentElement.clientHeight + vhDiff)
+    });
+    console.log('scrollHeight', Math.round(window.document.documentElement.scrollHeight));
+    console.log('screenHeight', Math.round(window.document.documentElement.clientHeight));
+  }
 
-      if (sp >= minlimit && sp <= maxlimit) {
-        this.setState({
-          scrollPercent: sp
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this$state = this.state,
-          scrollPercent = _this$state.scrollPercent,
-          scrollHeight = _this$state.scrollHeight,
-          screenHeight = _this$state.screenHeight;
-      var pageSplitTimes = this.props.pageSplitTimes;
-      var boxHeight = pageSplitTimes * 100;
-      return /*#__PURE__*/_react.default.createElement(ImageContainer, null, /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_VoistrapImages.default, {
-        boxHeight: boxHeight,
-        index: 1,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_WhatsMyFoodImages.default, {
-        boxHeight: boxHeight,
-        index: 2,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_ComingOrNotImages.default, {
-        boxHeight: boxHeight,
-        index: 3,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
-        boxHeight: boxHeight,
-        index: 4,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
-        boxHeight: boxHeight,
-        index: 5,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })), /*#__PURE__*/_react.default.createElement(ImageBox, {
-        height: boxHeight
-      }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
-        boxHeight: boxHeight,
-        index: 6,
-        scrollPercent: scrollPercent,
-        screenHeight: screenHeight,
-        scrollHeight: scrollHeight
-      })));
-    }
-  }]);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
 
-  return ImageContent;
-}(_react.Component);
+  handleScroll() {
+    const {
+      body,
+      documentElement
+    } = window.document;
+    const sd = Math.max(body.scrollTop, documentElement.scrollTop);
+    const sp = sd / (documentElement.scrollHeight - documentElement.clientHeight) * 100;
+    const minlimit = documentElement.clientHeight * 100 / documentElement.scrollHeight;
+    const maxlimit = documentElement.clientHeight * 1040 / documentElement.scrollHeight;
+
+    if (sp >= minlimit && sp <= maxlimit) {
+      this.setState({
+        scrollPercent: sp
+      });
+    }
+  }
+
+  render() {
+    const {
+      scrollPercent,
+      scrollHeight,
+      screenHeight
+    } = this.state;
+    const {
+      pageSplitTimes
+    } = this.props;
+    const boxHeight = pageSplitTimes * 100;
+    return /*#__PURE__*/_react.default.createElement(ImageContainer, null, /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_VoistrapImages.default, {
+      boxHeight: boxHeight,
+      index: 1,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_WhatsMyFoodImages.default, {
+      boxHeight: boxHeight,
+      index: 2,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_ComingOrNotImages.default, {
+      boxHeight: boxHeight,
+      index: 3,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_TeslaImages.default, {
+      boxHeight: boxHeight,
+      index: 4,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_KosenImages.default, {
+      boxHeight: boxHeight,
+      index: 5,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })), /*#__PURE__*/_react.default.createElement(ImageBox, {
+      height: boxHeight
+    }, /*#__PURE__*/_react.default.createElement(_VoistrapWebImages.default, {
+      boxHeight: boxHeight,
+      index: 6,
+      scrollPercent: scrollPercent,
+      screenHeight: screenHeight,
+      scrollHeight: scrollHeight
+    })));
+  }
+
+}
 
 ImageContent.propTypes = {
   pageSplitTimes: _propTypes.default.number.isRequired
@@ -37695,60 +37560,30 @@ var _TextContent = _interopRequireDefault(require("./TextContent"));
 
 var _ImageContent = _interopRequireDefault(require("./ImageContent"));
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.div`
+    display: flex;
+    flex-flow: row nowrap;
+    /* border: 1px dashed red; */
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-flow: row nowrap;\n    /* border: 1px dashed red; */\n"])));
-
-var Work = /*#__PURE__*/function (_Component) {
-  _inherits(Work, _Component);
-
-  var _super = _createSuper(Work);
-
-  function Work(props) {
-    var _this;
-
-    _classCallCheck(this, Work);
-
-    _this = _super.call(this, props);
-    _this.state = {
+class Work extends _react.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       vh: 0,
       slideNumber: 0
     };
-    _this.pageSplitTimes = 1.3;
-    _this.lastScrollTop = 0;
-    _this.scrollDirectionDown = true;
-    _this.handleScroll = _this.handleScroll.bind(_assertThisInitialized(_this));
-    _this.workDetails = [{
+    this.pageSplitTimes = 1.3;
+    this.lastScrollTop = 0;
+    this.scrollDirectionDown = true;
+    this.handleScroll = this.handleScroll.bind(this);
+    this.workDetails = [{
       number: '',
       projectName: '',
       projectDesc: '',
@@ -37797,77 +37632,72 @@ var Work = /*#__PURE__*/function (_Component) {
       projectType: '',
       roles: ['']
     }];
-    return _this;
   }
 
-  _createClass(Work, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll);
-      var vhDiff = (0, _vhCheck.default)().offset;
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+    const vhDiff = (0, _vhCheck.default)().offset;
+    this.setState({
+      vh: Math.round((window.document.documentElement.clientHeight + vhDiff) * this.pageSplitTimes)
+    });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll(event) {
+    const {
+      body,
+      documentElement
+    } = event.srcElement;
+    const {
+      vh,
+      slideNumber
+    } = this.state;
+    const scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+
+    if (scrollDistance > this.lastScrollTop) {
+      this.scrollDirectionDown = true;
+    } else {
+      this.scrollDirectionDown = false;
+    }
+
+    this.lastScrollTop = scrollDistance; // console.log(scrollDistance);
+
+    if (Math.floor(scrollDistance / vh) !== slideNumber && slideNumber < this.workDetails.length - 1) {
       this.setState({
-        vh: Math.round((window.document.documentElement.clientHeight + vhDiff) * this.pageSplitTimes)
+        slideNumber: Math.floor(scrollDistance / vh)
+      });
+    } else if (slideNumber === this.workDetails.length - 1 && Math.floor(scrollDistance / vh) < slideNumber) {
+      this.setState({
+        slideNumber: Math.floor(scrollDistance / vh)
       });
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll);
-    }
-  }, {
-    key: "handleScroll",
-    value: function handleScroll(event) {
-      var _event$srcElement = event.srcElement,
-          body = _event$srcElement.body,
-          documentElement = _event$srcElement.documentElement;
-      var _this$state = this.state,
-          vh = _this$state.vh,
-          slideNumber = _this$state.slideNumber;
-      var scrollDistance = Math.max(body.scrollTop, documentElement.scrollTop);
+  }
 
-      if (scrollDistance > this.lastScrollTop) {
-        this.scrollDirectionDown = true;
-      } else {
-        this.scrollDirectionDown = false;
-      }
+  changeTextContentBasedOnScroll() {
+    const {
+      slideNumber
+    } = this.state;
+    const refresh = true;
+    return /*#__PURE__*/_react.default.createElement(_TextContent.default, {
+      number: this.workDetails[slideNumber].number,
+      projectName: this.workDetails[slideNumber].projectName,
+      projectDesc: this.workDetails[slideNumber].projectDesc,
+      projectType: this.workDetails[slideNumber].projectType,
+      roles: this.workDetails[slideNumber].roles,
+      refreshToggle: refresh
+    });
+  }
 
-      this.lastScrollTop = scrollDistance; // console.log(scrollDistance);
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, this.changeTextContentBasedOnScroll(), /*#__PURE__*/_react.default.createElement(_ImageContent.default, {
+      pageSplitTimes: this.pageSplitTimes
+    }));
+  }
 
-      if (Math.floor(scrollDistance / vh) !== slideNumber && slideNumber < this.workDetails.length - 1) {
-        this.setState({
-          slideNumber: Math.floor(scrollDistance / vh)
-        });
-      } else if (slideNumber === this.workDetails.length - 1 && Math.floor(scrollDistance / vh) < slideNumber) {
-        this.setState({
-          slideNumber: Math.floor(scrollDistance / vh)
-        });
-      }
-    }
-  }, {
-    key: "changeTextContentBasedOnScroll",
-    value: function changeTextContentBasedOnScroll() {
-      var slideNumber = this.state.slideNumber;
-      var refresh = true;
-      return /*#__PURE__*/_react.default.createElement(_TextContent.default, {
-        number: this.workDetails[slideNumber].number,
-        projectName: this.workDetails[slideNumber].projectName,
-        projectDesc: this.workDetails[slideNumber].projectDesc,
-        projectType: this.workDetails[slideNumber].projectType,
-        roles: this.workDetails[slideNumber].roles,
-        refreshToggle: refresh
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, this.changeTextContentBasedOnScroll(), /*#__PURE__*/_react.default.createElement(_ImageContent.default, {
-        pageSplitTimes: this.pageSplitTimes
-      }));
-    }
-  }]);
-
-  return Work;
-}(_react.Component);
+}
 
 var _default = Work;
 exports.default = _default;
@@ -37885,64 +37715,87 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _breakpoints = _interopRequireDefault(require("../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.section`
+    height: 120vh;
+    width:100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: flex-start;
+    @media ${_breakpoints.default.mobileS} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.mobileM} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.mobileL} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.tablet} {
+    padding-left:90px;
+    }
+    @media ${_breakpoints.default.laptop} {
+    padding-left:120px;
+    }
+`;
+const SkillsTitle = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  color: #000;
+  @media ${_breakpoints.default.mobileS} {
+    font-size: 40px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    font-size: 50px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    font-size: 60px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    font-size: 90px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 95px;
+  }
+`;
+const SkillsList = _styledComponents.default.div`
+  font-family: 'AvenirRoman';
+  z-index: 1;
+  
+  @media ${_breakpoints.default.mobileS} {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    margin-top: 35px;
+    font-size: 23px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    margin-top: 35px;
+    font-size: 25px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    margin-top: 45px;
+    font-size: 35px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    margin-top: 60px;
+    font-size: 45px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    height: 120vh;\n    width:100%;\n    /* border: 1px solid blue; */\n    display: flex;\n    flex-flow: column wrap;\n    justify-content: center;\n    align-content: flex-start;\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:90px;\n    }\n    @media ", " {\n    padding-left:120px;\n    }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var SkillsTitle = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  color: #000;\n  @media ", " {\n    font-size: 40px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  @media ", " {\n    font-size: 60px;\n  }\n  @media ", " {\n    font-size: 90px;\n  }\n  @media ", " {\n    font-size: 95px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var SkillsList = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  font-family: 'AvenirRoman';\n  z-index: 1;\n  \n  @media ", " {\n    margin-top: 30px;\n    font-size: 20px;\n  }\n  @media ", " {\n    margin-top: 35px;\n    font-size: 23px;\n  }\n  @media ", " {\n    margin-top: 35px;\n    font-size: 25px;\n  }\n  @media ", " {\n    margin-top: 45px;\n    font-size: 35px;\n  }\n  @media ", " {\n    margin-top: 60px;\n    font-size: 45px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var Skills = /*#__PURE__*/function (_Component) {
-  _inherits(Skills, _Component);
-
-  var _super = _createSuper(Skills);
-
-  function Skills() {
-    _classCallCheck(this, Skills);
-
-    return _super.apply(this, arguments);
+class Skills extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(SkillsTitle, null, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Epress.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Maerial.UI", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
   }
 
-  _createClass(Skills, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(SkillsTitle, null, "SKILLS"), /*#__PURE__*/_react.default.createElement(SkillsList, null, /*#__PURE__*/_react.default.createElement("div", null, "React", /*#__PURE__*/_react.default.createElement("br", null), "MongoDB", /*#__PURE__*/_react.default.createElement("br", null), "JavascriptES6", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Epress.js", /*#__PURE__*/_react.default.createElement("br", null), "Node.js", /*#__PURE__*/_react.default.createElement("br", null), "Linux", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Responsive Design", /*#__PURE__*/_react.default.createElement("br", null), "Testing & Debugging", /*#__PURE__*/_react.default.createElement("br", null), "Application Architecture", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Github", /*#__PURE__*/_react.default.createElement("br", null), "Bootstrap & Sass", /*#__PURE__*/_react.default.createElement("br", null), "Maerial.UI", /*#__PURE__*/_react.default.createElement("br", null), /*#__PURE__*/_react.default.createElement("br", null), "Axios.io", /*#__PURE__*/_react.default.createElement("br", null))));
-    }
-  }]);
-
-  return Skills;
-}(_react.Component);
+}
 
 var _default = Skills;
 exports.default = _default;
@@ -37962,67 +37815,46 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const LogoImage = _styledComponents.default.img`
+/* border: 1px solid black; */
+  @media ${_breakpoints.default.mobileS} {
+    height: 65px;
+    width: 65px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    height: 80px;
+    width: 80px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    height: 100px;
+    width: 100px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    height: 130px;
+    width: 130px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var LogoImage = _styledComponents.default.img(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n/* border: 1px solid black; */\n  @media ", " {\n    height: 65px;\n    width: 65px;\n  }\n  @media ", " {\n    height: 80px;\n    width: 80px;\n  }\n  @media ", " {\n    height: 100px;\n    width: 100px;\n  }\n  @media ", " {\n    height: 130px;\n    width: 130px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet);
-
-var SocialLogo = /*#__PURE__*/function (_React$Component) {
-  _inherits(SocialLogo, _React$Component);
-
-  var _super = _createSuper(SocialLogo);
-
-  function SocialLogo() {
-    _classCallCheck(this, SocialLogo);
-
-    return _super.apply(this, arguments);
+class SocialLogo extends _react.default.Component {
+  render() {
+    const {
+      imgURL,
+      alternate,
+      redirectURL
+    } = this.props;
+    return /*#__PURE__*/_react.default.createElement("a", {
+      href: redirectURL,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    }, /*#__PURE__*/_react.default.createElement(LogoImage, {
+      src: imgURL,
+      alt: alternate
+    }));
   }
 
-  _createClass(SocialLogo, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          imgURL = _this$props.imgURL,
-          alternate = _this$props.alternate,
-          redirectURL = _this$props.redirectURL;
-      return /*#__PURE__*/_react.default.createElement("a", {
-        href: redirectURL,
-        target: "_blank",
-        rel: "noopener noreferrer"
-      }, /*#__PURE__*/_react.default.createElement(LogoImage, {
-        src: imgURL,
-        alt: alternate
-      }));
-    }
-  }]);
-
-  return SocialLogo;
-}(_react.default.Component);
+}
 
 SocialLogo.propTypes = {
   imgURL: _propTypes.default.string.isRequired,
@@ -38053,76 +37885,103 @@ var _SocialLogo = _interopRequireDefault(require("./SocialLogo"));
 
 var _breakpoints = _interopRequireDefault(require("../../../Assets/Responsive/breakpoints"));
 
-var _templateObject, _templateObject2, _templateObject3;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const Container = _styledComponents.default.section`
+    margin-top:20vh;
+    height: 100vh;
+    width:100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: flex-start;
+    @media ${_breakpoints.default.mobileS} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.mobileM} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.mobileL} {
+    padding-left:60px;
+    }
+    @media ${_breakpoints.default.tablet} {
+    padding-left:90px;
+    margin-bottom:90px;
+    }
+    @media ${_breakpoints.default.laptop} {
+    padding-left:120px;
+    margin-bottom:120px;
+    }
+`;
+const ContactTitle = _styledComponents.default.div`
+  font-family: 'AvenirHeavy';
+  color: #000;
+  @media ${_breakpoints.default.mobileS} {
+    font-size: 40px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    font-size: 50px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    font-size: 60px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    font-size: 90px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    font-size: 95px;
+  }
+`;
+const SocialMediaIcons = _styledComponents.default.div`
+  /* border: 1px solid black; */
+  z-index: 1;
+  display: grid;
+  grid-template: 80px 80px 80px / 1fr 1fr;
+  @media ${_breakpoints.default.mobileS} {
+    margin-top: 60px;
+    grid-gap: 40px;
+  }
+  @media ${_breakpoints.default.mobileM} {
+    margin-top: 60px;
+    grid-gap: 60px;
+  }
+  @media ${_breakpoints.default.mobileL} {
+    margin-top: 60px;
+    grid-gap: 70px;
+  }
+  @media ${_breakpoints.default.tablet} {
+    margin-top: 80px;
+    grid-gap: 170px;
+  }
+  @media ${_breakpoints.default.laptop} {
+    margin-top: 120px;
+    grid-gap: 200px;
+  }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents.default.section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    margin-top:20vh;\n    height: 100vh;\n    width:100%;\n    /* border: 1px solid blue; */\n    display: flex;\n    flex-flow: column wrap;\n    justify-content: center;\n    align-content: flex-start;\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:60px;\n    }\n    @media ", " {\n    padding-left:90px;\n    margin-bottom:90px;\n    }\n    @media ", " {\n    padding-left:120px;\n    margin-bottom:120px;\n    }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var ContactTitle = _styledComponents.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-family: 'AvenirHeavy';\n  color: #000;\n  @media ", " {\n    font-size: 40px;\n  }\n  @media ", " {\n    font-size: 50px;\n  }\n  @media ", " {\n    font-size: 60px;\n  }\n  @media ", " {\n    font-size: 90px;\n  }\n  @media ", " {\n    font-size: 95px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var SocialMediaIcons = _styledComponents.default.div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  /* border: 1px solid black; */\n  z-index: 1;\n  display: grid;\n  grid-template: 80px 80px 80px / 1fr 1fr;\n  @media ", " {\n    margin-top: 60px;\n    grid-gap: 40px;\n  }\n  @media ", " {\n    margin-top: 60px;\n    grid-gap: 60px;\n  }\n  @media ", " {\n    margin-top: 60px;\n    grid-gap: 70px;\n  }\n  @media ", " {\n    margin-top: 80px;\n    grid-gap: 170px;\n  }\n  @media ", " {\n    margin-top: 120px;\n    grid-gap: 200px;\n  }\n"])), _breakpoints.default.mobileS, _breakpoints.default.mobileM, _breakpoints.default.mobileL, _breakpoints.default.tablet, _breakpoints.default.laptop);
-
-var Contact = /*#__PURE__*/function (_Component) {
-  _inherits(Contact, _Component);
-
-  var _super = _createSuper(Contact);
-
-  function Contact() {
-    _classCallCheck(this, Contact);
-
-    return _super.apply(this, arguments);
+class Contact extends _react.Component {
+  render() {
+    return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, null, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _git.default,
+      alternate: "github",
+      redirectURL: "https://github.com/01000001kuma"
+    }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _mail.default,
+      alternate: "mail",
+      redirectURL: "mailto:a_illera@yahoo.com"
+    }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
+      imgURL: _linkedin.default,
+      alternate: "linkedin",
+      redirectURL: "https://www.linkedin.com/in/adrian-molina/"
+    })));
   }
 
-  _createClass(Contact, [{
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(Container, null, /*#__PURE__*/_react.default.createElement(ContactTitle, null, "CONTACT"), /*#__PURE__*/_react.default.createElement(SocialMediaIcons, null, /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _git.default,
-        alternate: "github",
-        redirectURL: "https://github.com/01000001kuma"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _mail.default,
-        alternate: "mail",
-        redirectURL: "mailto:a_illera@yahoo.com"
-      }), /*#__PURE__*/_react.default.createElement(_SocialLogo.default, {
-        imgURL: _linkedin.default,
-        alternate: "linkedin",
-        redirectURL: "https://www.linkedin.com/in/adrian-molina/"
-      })));
-    }
-  }]);
-
-  return Contact;
-}(_react.Component);
+}
 
 var _default = Contact;
 exports.default = _default;
@@ -38232,71 +38091,33 @@ var _Contact2 = _interopRequireDefault(require("./Slides/Mobile/ContactSlide/Con
 
 require("./Assets/index.css");
 
-var _templateObject;
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+const GlobalStyle = (0, _styledComponents.createGlobalStyle)`
+html, body { margin: 0;}
+*, *:before, *:after { box-sizing: border-box; }
+`;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var GlobalStyle = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\nhtml, body { margin: 0;}\n*, *:before, *:after { box-sizing: border-box; }\n"])));
-
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
-
-  var _super = _createSuper(App);
-
-  function App() {
-    _classCallCheck(this, App);
-
-    return _super.apply(this, arguments);
+class App extends _react.Component {
+  componentDidMount() {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
   }
 
-  _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if ('scrollRestoration' in window.history) {
-        window.history.scrollRestoration = 'manual';
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactResponsive.default, {
-        query: "(min-device-width: 1224px)"
-      }, /*#__PURE__*/_react.default.createElement(_Hero.default, null), /*#__PURE__*/_react.default.createElement(_Work.default, null), /*#__PURE__*/_react.default.createElement(_Skills.default, null), /*#__PURE__*/_react.default.createElement(_Contact.default, null)), /*#__PURE__*/_react.default.createElement(_reactResponsive.default, {
-        query: "(max-device-width: 1224px)"
-      }, /*#__PURE__*/_react.default.createElement(_Hero2.default, null), /*#__PURE__*/_react.default.createElement(_Work2.default, null), /*#__PURE__*/_react.default.createElement(_Skills2.default, null), /*#__PURE__*/_react.default.createElement(_Contact2.default, null)), /*#__PURE__*/_react.default.createElement(GlobalStyle, null));
-    }
-  }]);
+  render() {
+    return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_reactResponsive.default, {
+      query: "(min-device-width: 1224px)"
+    }, /*#__PURE__*/_react.default.createElement(_Hero.default, null), /*#__PURE__*/_react.default.createElement(_Work.default, null), /*#__PURE__*/_react.default.createElement(_Skills.default, null), /*#__PURE__*/_react.default.createElement(_Contact.default, null)), /*#__PURE__*/_react.default.createElement(_reactResponsive.default, {
+      query: "(max-device-width: 1224px)"
+    }, /*#__PURE__*/_react.default.createElement(_Hero2.default, null), /*#__PURE__*/_react.default.createElement(_Work2.default, null), /*#__PURE__*/_react.default.createElement(_Skills2.default, null), /*#__PURE__*/_react.default.createElement(_Contact2.default, null)), /*#__PURE__*/_react.default.createElement(GlobalStyle, null));
+  }
 
-  return App;
-}(_react.Component);
+}
 
 (0, _reactDom.render)(_react.default.createElement(App), document.getElementById('root'));
 var _default = App;
@@ -38329,7 +38150,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39305" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42061" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
