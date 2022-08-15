@@ -1,6 +1,6 @@
 # Adrian Molina's Personal Portfolio website
 
-Website link: [sureshmurali.github.io](sureshmurali.github.io)
+Website link: [adrianmolina.github.io](adrianmolina.github.io)
 
 ## LICENSE
 
